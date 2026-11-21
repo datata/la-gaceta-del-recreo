@@ -1,6 +1,6 @@
-# La Gaceta del Recreo
+# El diario de Pao
 
-Una página estática para crear un periódico infantil con el pronóstico meteorológico de hoy y una sopa de letras nueva cada día, pensada para niñas y niños de hasta 10 años. Elige una ciudad o comparte la ubicación del navegador, resuelve el pasatiempo en pantalla o pulsa **Crear mi periódico en PDF** para imprimirlo. En la ventana de impresión selecciona **Guardar como PDF**.
+Una página estática para crear un periódico infantil con el pronóstico meteorológico de hoy y dos pasatiempos diarios: una sopa de letras y un sudoku 6×6 para principiantes. Pensado para niñas y niños de hasta 10 años. Elige una ciudad o comparte la ubicación del navegador, resuelve los juegos en pantalla o pulsa **Crear mi periódico en PDF** para imprimirlos. En la ventana de impresión selecciona **Guardar como PDF**.
 
 ## Publicar en GitHub Pages
 
