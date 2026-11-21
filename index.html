@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f1e8">
+  <meta name="theme-color" content="#f4f0e5">
   <meta name="description" content="El diario de Pao: el tiempo de hoy y dos pasatiempos infantiles nuevos cada día.">
   <title>El diario de Pao — tiempo, juegos y curiosidades</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
   <style>
     :root{--ink:#192e29;--muted:#77827b;--canvas:#f5f6f1;--paper:#fff;--green:#214e3e;--green-dark:#17382e;--lime:#d9f27b;--coral:#ff9275;--sky:#e5f2ec;--line:#e6e9e2;--serif:'Fraunces',Georgia,serif}
     *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:'DM Sans',sans-serif}button,input{font:inherit}.topbar{width:min(1190px,92vw);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font:700 17px 'Outfit',sans-serif;letter-spacing:-.3px}.brand span{display:grid;place-items:center;background:var(--green);color:#fff;border-radius:12px;width:36px;height:36px;font-size:19px}.today-label{font-size:12px;color:var(--muted);font-weight:600}.layout{width:min(1190px,92vw);margin:25px auto 70px;display:grid;grid-template-columns:minmax(300px,.77fr) minmax(0,1.23fr);gap:46px;align-items:start}.intro{padding:28px 0 0;position:sticky;top:20px}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e6eddd;color:var(--green);border-radius:99px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.3px}.eyebrow:before{content:'✦';color:#e08d58;font-size:13px}h1{font:700 clamp(48px,6vw,75px)/.98 'Outfit',sans-serif;letter-spacing:-4.5px;margin:22px 0 17px}h1 em{font-family:'Fraunces',serif;font-weight:600;color:#4a8062;letter-spacing:-4px}.intro>p{max-width:360px;color:#66736b;font-size:15px;line-height:1.7;margin:0 0 30px}.form-label{display:block;font-size:11px;font-weight:800;letter-spacing:.3px;margin:0 0 8px}.city-row{display:flex;gap:8px;padding:5px;background:white;border:1px solid #e4e7df;border-radius:15px;box-shadow:0 5px 18px #263a2c08}.city-row input{width:100%;min-width:0;border:0;background:transparent;padding:10px 12px;border-radius:10px;color:var(--ink);outline:none;font-size:14px}.city-row input:focus{box-shadow:inset 0 0 0 1.5px #9bbba0}.search-btn{background:var(--green);color:white;border:0;border-radius:11px;width:44px;flex:0 0 44px;cursor:pointer;font-size:19px;transition:background .18s,transform .18s}.search-btn:hover{background:#356d52;transform:translateY(-1px)}.print-btn{width:100%;margin-top:13px;border:0;background:var(--coral);color:#34231d;border-radius:14px;padding:15px 17px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 5px 0 #df765c;transition:transform .18s,box-shadow .18s}.print-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #df765c}.geo-btn{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:var(--green);font-weight:700;font-size:12px;margin:15px 0 0;cursor:pointer}.hint,.status{font-size:11px;line-height:1.6;color:var(--muted);margin-top:12px}.hint{max-width:330px}.status{min-height:18px}.paper{background:var(--paper);padding:34px 38px 26px;border:1px solid #ebede7;border-radius:25px;box-shadow:0 18px 50px #263a2c0d;position:relative;overflow:hidden}.paper:before{content:'✳';position:absolute;right:24px;top:72px;color:#f6dfc8;font-size:42px;transform:rotate(12deg)}.paper-content{position:relative}.paper-top{display:flex;justify-content:space-between;align-items:center;gap:14px;color:#768179;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:800;border-bottom:1px solid #e8ebe4;padding:0 0 12px}.masthead{text-align:center;padding:21px 0 12px}.masthead h2{margin:0;font:700 clamp(40px,5vw,58px)/.9 'Fraunces',serif;letter-spacing:-2.5px;color:var(--green-dark)}.masthead p{font:italic 12px var(--serif);color:#758078;margin:10px 0 0}.edition{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;border-top:1px solid #e8ebe4;border-bottom:1px solid #e8ebe4;padding:9px 4px;font-size:9px;font-weight:800;color:#78837b;text-transform:uppercase;letter-spacing:.55px}.edition b{color:#e99872;font-size:11px}.headline{font:700 clamp(25px,3vw,34px)/1.08 'Outfit',sans-serif;letter-spacing:-1px;text-align:center;margin:22px 0 7px}.dek{text-align:center;font:italic 13px/1.5 var(--serif);color:#738077;margin:0 auto 17px;max-width:470px}.weather-card{background:linear-gradient(115deg,#e4f1e6 0%,#eef3da 57%,#fff0d7 100%);border:1px solid #e2eadb;border-radius:19px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;position:relative;overflow:hidden}.weather-card:after{content:'';position:absolute;width:150px;height:150px;border:1px solid #fff9;border-radius:50%;right:-38px;top:-88px;box-shadow:0 0 0 15px #fff5,0 0 0 31px #fff3}.weather-card>div{position:relative;z-index:1}.weather-kicker{font-size:9px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:#578166}.weather-location{font:600 20px 'Outfit',sans-serif;margin-top:5px}.weather-desc{font-size:12px;color:#5e7164;margin-top:3px}.temperature{font:600 52px/.95 'Outfit',sans-serif;letter-spacing:-3px;white-space:nowrap;color:#244c39}.weather-icon{font-size:28px;margin-right:4px;vertical-align:8px}.weather-meta{border-top:1px solid #cbdccb;margin-top:14px;padding-top:9px;display:flex;flex-wrap:wrap;gap:15px;font-size:10px;color:#617367}.section-title{font:700 18px 'Outfit',sans-serif;letter-spacing:-.35px;margin:20px 0 9px}.bottom-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:18px}.story{font:12px/1.7 'DM Sans',sans-serif;color:#657268;margin:0}.story strong{font-weight:700}.fact{background:#f5f5ee;border:1px solid #eeefe8;border-radius:14px;padding:13px 14px;font:12px/1.65 var(--serif);color:#57635a}.fact .pill{display:inline-block;background:#e4edcc;color:#52704a;padding:4px 9px;border-radius:99px;font:800 8px 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}.forecast{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.day{background:#fafbf8;border:1px solid #ebeee8;border-radius:12px;text-align:center;padding:10px 3px}.day-name{font-size:8px;font-weight:800;text-transform:uppercase;color:#79847c;letter-spacing:.3px}.day-icon{font-size:19px;margin:5px}.day-temp{font:600 13px 'Outfit',sans-serif}.day-rain{font-size:8px;color:#8a948d;margin-top:2px}.paper-footer{border-top:1px solid #e8ebe4;padding-top:10px;margin-top:19px;text-align:center;font:italic 10px var(--serif);color:#849087}.loading{opacity:.6}.hidden{display:none}
@@ -27,15 +27,111 @@
     @media(max-width:480px){.intro{padding:25px 21px;border-radius:24px}.intro h1{font-size:52px}.paper{border-radius:22px}}
     @media print{body{background:white}.intro{display:none!important}.paper{background:white;border-radius:0}.paper:before{display:none}.paper-top span:last-child{background:transparent;padding:0}.masthead h2{font-size:37pt}.daily-games{grid-template-columns:1.08fr .92fr}}
   </style>
+  <style id="diary-design">
+    :root{--ink:#193e46;--muted:#657b7b;--canvas:#f4f0e5;--paper:#fffcf3;--green:#4e7b65;--green-dark:#193e46;--lime:#f4d66d;--coral:#f17f67;--sky:#c5dadd;--line:#ddd9ca;--serif:'Fraunces',Georgia,serif}
+    body{background-color:var(--canvas);background-image:radial-gradient(#c4bda955 .7px,transparent .8px);background-size:19px 19px}
+    button,input{font-family:'DM Sans',sans-serif}
+    :focus-visible{outline:3px solid #e1755e;outline-offset:3px}
+    .topbar{width:min(1160px,92vw);padding:21px 0 9px}
+    .brand{font:700 17px 'DM Sans',sans-serif;letter-spacing:-.45px;color:var(--ink)}
+    .brand span{width:35px;height:35px;background:var(--lime);color:var(--ink);border:1px solid var(--ink);border-radius:50% 50% 42% 50%;font-size:18px;transform:rotate(-8deg)}
+    .today-label{font-size:12px;color:var(--ink);font-weight:700;text-transform:capitalize}
+    .layout{width:min(1160px,92vw);grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:42px;margin:23px auto 70px}
+    .intro{position:sticky;top:20px;overflow:hidden;isolation:isolate;padding:29px 27px 25px;border:1px solid #193e4630;border-radius:44px 20px 20px 20px;background:#c5dadd;color:var(--ink);box-shadow:7px 7px 0 #e8c8a9}
+    .intro:after{content:none}
+    .intro h1{font:600 clamp(39px,4.4vw,55px)/1.02 'Fraunces',serif;letter-spacing:-2.1px;color:var(--ink);margin:0 0 17px}
+    .sky-illustration{height:124px;position:relative;overflow:hidden;border:1px solid #193e4628;border-radius:52% 18px 18px 18px;background:#7297a1;margin:0 0 18px}
+    .sky-illustration svg{display:block;width:100%;height:100%}
+    .sky-illustration span{position:absolute;right:10px;bottom:9px;color:#fff9e9;font:italic 10px 'Fraunces',serif;transform:rotate(-3deg)}
+    .intro>p{max-width:340px;color:#365960;font-size:13px;line-height:1.65;margin:0 0 20px}
+    .form-label{font-size:12px;font-weight:700;letter-spacing:0;color:var(--ink);margin-bottom:7px}
+    .city-row{padding:4px;border:1px solid #193e4633;border-radius:13px;background:#fffdf7;box-shadow:2px 3px 0 #193e4610}
+    .city-row input{padding:10px 11px;color:var(--ink)}
+    .city-row input:focus{box-shadow:inset 0 0 0 1.5px var(--green)}
+    .search-btn{width:40px;flex-basis:40px;border-radius:10px;background:var(--ink);color:#fff9e9}
+    .search-btn:hover{background:#315f61}
+    .geo-btn{color:#254f50;font-size:12px;margin-top:12px;padding:4px 0}
+    .print-btn{margin-top:12px;padding:14px 16px;border:1px solid #193e46;border-radius:13px;background:var(--lime);color:#193e46;box-shadow:3px 4px 0 #193e46;font-size:13px}
+    .print-btn:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 #193e46}
+    .hint,.status{color:#476a6d;font-size:10px;line-height:1.5}
+    .hint{margin-top:13px}
+    .paper{background:var(--paper);border:1px solid #d9d0bc;border-radius:8px 32px 9px 32px;box-shadow:8px 8px 0 #e5d6bd,0 22px 50px #4a54421a;padding:31px 34px 23px}
+    .paper:before{content:'✳';top:57px;right:21px;color:#e5b95c;font-size:30px}
+    .paper-top{border-color:#cfc8b6;padding-bottom:10px;color:#637672;font-size:8px;letter-spacing:.3px;text-transform:none}
+    .paper-top span:last-child{background:#f4d66d;padding:5px 9px;border:1px solid var(--ink);border-radius:50% 44% 49% 45%;color:var(--ink);font-size:8px;letter-spacing:0;transform:rotate(-2deg)}
+    .masthead{padding:18px 0 11px}
+    .masthead h2{font:650 clamp(40px,4.7vw,55px)/.85 'Fraunces',serif;letter-spacing:-2.9px;color:var(--ink)}
+    .masthead p{font:italic 11px/1.5 'Fraunces',serif;color:#627574;margin-top:9px}
+    .edition{border-color:#cfc8b6;padding:7px 4px;color:#526b68;font-size:8px;letter-spacing:.1px;text-transform:none}
+    .edition b{color:var(--coral)}
+    .headline{font:650 clamp(23px,2.6vw,31px)/1.08 'Fraunces',serif;letter-spacing:-.8px;color:var(--ink);margin:17px 0 6px}
+    .dek{font:italic 12px/1.5 'Fraunces',serif;color:#5f7774;margin-bottom:14px}
+    .weather-card{background:#dce9df;border:1px solid #9bb4a1;border-radius:19px 7px 19px 7px;padding:16px 19px}
+    .weather-card:after{width:105px;height:105px;right:-24px;top:-63px;border-color:#fff9;box-shadow:0 0 0 12px #fff5,0 0 0 24px #fff3}
+    .weather-kicker{font-size:9px;letter-spacing:.3px;text-transform:none;color:#4e7562}
+    .weather-location{font:650 19px 'DM Sans',sans-serif;color:var(--ink)}
+    .weather-desc{font-size:11px;color:#536d68}
+    .temperature{font:600 48px/.95 'Fraunces',serif;letter-spacing:-2px;color:#244c39}
+    .weather-meta{border-color:#b7c9b8;color:#526e63;font-size:9px}
+    .section-title{font:650 17px 'Fraunces',serif;letter-spacing:-.25px;color:var(--ink);margin:15px 0 7px}
+    .bottom-grid{gap:15px}
+    .story{font-size:11px;line-height:1.65;color:#526966}
+    .fact{background:#f6efd9;border:1px solid #e7d8ae;border-radius:5px 13px 5px 13px;padding:10px 12px;font:11px/1.55 'DM Sans',sans-serif;color:#52645c}
+    .fact .pill{background:#f4d66d;color:#254c49;border-radius:5px 10px;padding:4px 7px;font:700 8px 'DM Sans',sans-serif;letter-spacing:0;text-transform:none}
+    .day{background:#f7f5ea;border:1px solid #dfd9c8;border-radius:7px 11px 7px 11px;padding:8px 3px}
+    .day-name{font-size:8px;text-transform:none;color:#667873;letter-spacing:0}
+    .day-temp{font:650 12px 'DM Sans',sans-serif;color:var(--ink)}
+    .day-rain{font-size:8px;color:#6f827b}
+    .puzzle-section,.sudoku-section{background:#f8f3e7;border:1px solid #dfd5bd;border-radius:6px 17px 6px 17px;padding:13px 14px}
+    .sudoku-section{background:#eef3eb}
+    .puzzle-heading .section-title,.sudoku-heading .section-title{font-size:16px}
+    .puzzle-tag{background:#f4d66d;color:#254c49;border:1px solid #d4bb61;border-radius:4px 10px 4px 10px;padding:5px 7px;font-size:8px;letter-spacing:0;text-transform:none}
+    .puzzle-subtitle,.sudoku-subtitle{color:#657974;font-size:9px}
+    .word-grid{gap:2px}
+    .letter-cell{background:#fffdf6;border-color:#e5decf;border-radius:2px;color:#24484a;font-family:'DM Sans',sans-serif}
+    .letter-cell.selected{background:#f4d66d;border-color:#c2a748;color:#183e44}
+    .letter-cell.found{background:#cadfbe;border-color:#83a879;color:#214b3b}
+    .word-side-title{color:#668078;font-size:8px;letter-spacing:0;text-transform:none}
+    .word-list li{font:600 11px 'DM Sans',sans-serif;color:#425e58}
+    .word-list li:before{background:#83a879}
+    .word-list li.found-word:before{background:#c8ddb9;color:#28523d}
+    .check-word,.sudoku-check{background:#193e46;color:#fff9e9}
+    .check-word:hover,.sudoku-check:hover{background:#315f61}
+    .puzzle-status,.sudoku-status{color:#627771}
+    .sudoku-grid{border-color:#557e69;border-radius:4px}
+    .sudoku-cell{font-family:'DM Sans',sans-serif;color:#193e46}
+    .sudoku-cell.box-right,.sudoku-cell.box-bottom{border-color:#83a879}
+    .sudoku-cell.given{background:#e5ecdd;color:#315840}
+    .sudoku-cell.selected,.sudoku-number:hover,.sudoku-clear:hover{background:#f4d66d;color:#193e46}
+    .sudoku-cell.error{background:#f8d7c9;color:#8d4135}
+    .sudoku-number,.sudoku-clear{border-color:#ccd8ca;border-radius:5px;color:#315840}
+    .paper-footer{border-color:#d4cbb8;color:#6c7c74;font:italic 9px 'Fraunces',serif}
+    @media(max-width:800px){.topbar{padding:17px 0}.layout{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:17px}.intro{position:relative;padding:25px 24px 22px}.intro h1{font-size:clamp(41px,9vw,54px)}.sky-illustration{height:115px}.paper{padding:27px 25px 21px}}
+    @media(max-width:480px){.topbar{align-items:center}.brand{font-size:15px}.today-label{font-size:10px}.layout{width:91vw;gap:25px}.intro{padding:23px 20px 20px;border-radius:35px 18px 18px 18px}.intro h1{font-size:42px;letter-spacing:-1.8px}.sky-illustration{height:105px}.paper{padding:22px 16px 18px;border-radius:6px 24px 6px 24px}.paper-top{font-size:8px}.paper-top span:last-child{font-size:7px}.masthead h2{font-size:42px}.edition{font-size:8px;gap:6px}.weather-card{padding:14px 13px}.temperature{font-size:40px}.weather-icon{font-size:23px}.weather-meta{gap:8px}.bottom-grid{gap:10px}.section-title{font-size:16px}.day{padding:8px 2px}.puzzle-section,.sudoku-section{padding:12px 10px}.puzzle-layout{grid-template-columns:minmax(0,1fr) 84px;gap:7px}.sudoku-layout{grid-template-columns:minmax(0,1fr) 88px;gap:7px}.word-list li{font-size:9px}.sudoku-cell{font-size:14px}}
+    @media print{body{background:white;background-image:none}.intro,.topbar{display:none!important}.layout{display:block;width:auto;margin:0}.paper{background:#fff;border:0;border-radius:0;box-shadow:none;padding:3mm 6mm}.paper:before{display:none}.paper-top span:last-child{background:transparent;border:0;padding:0;transform:none}.masthead h2{font-size:37pt}.weather-card{background:#e6eee5}.daily-games{grid-template-columns:1.08fr .92fr}.puzzle-section,.sudoku-section{background:#f8f5ea}.paper-footer{margin-top:10px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
   <header class="topbar"><div class="brand"><span>✳</span> El diario de Pao</div><div class="today-label" id="todayLabel"></div></header>
   <main class="layout">
     <section class="intro" aria-label="Crear tu periódico">
-      <div class="eyebrow">Historias para curiosear cada día</div>
-      <h1>Hoy pasa<br>algo <em>genial.</em></h1>
-      <p>El cielo cambia, el mundo sorprende. Crea un periódico único con el tiempo de hoy y una misión para explorar.</p>
-      <label class="form-label" for="cityInput">¿En qué ciudad estás?</label>
+      <h1>¿Qué tiempo<br>nos espera hoy?</h1>
+      <div class="sky-illustration" aria-hidden="true">
+        <svg viewBox="0 0 420 150" role="presentation">
+          <path d="M0 116c47-28 77-17 123 2s80 11 121-10 104-23 176 6v36H0z" fill="#82a77e"/>
+          <path d="M0 128c56-14 94-5 134 7s94 11 139-5 91-14 147 0v20H0z" fill="#5f896f"/>
+          <circle cx="90" cy="55" r="25" fill="#f4d66d"/>
+          <path d="M90 13v-9M90 105v-9M48 55h-9M141 55h-9M60 25l-7-7M127 92l-7-7M120 25l7-7M53 92l7-7" stroke="#f4d66d" stroke-width="5" stroke-linecap="round"/>
+          <path d="M221 86c0-14 11-25 25-25 4-17 19-29 38-29 20 0 37 16 38 36 14 2 24 14 24 28 0 16-13 29-29 29h-66c-17 0-30-13-30-29 0-4 0-7 1-10" fill="#fff9e9"/>
+          <path d="M282 22c7-7 18-7 25 0M347 44l4-7M374 80l9 2" fill="none" stroke="#fff9e9" stroke-width="3" stroke-linecap="round"/>
+          <path d="M173 72c7-7 14-7 21 0M189 80c6-6 12-6 18 0" fill="none" stroke="#fff3d3" stroke-width="3" stroke-linecap="round"/>
+          <path d="M25 119c9-12 19-12 28 0M360 125c8-12 17-12 25 0" fill="none" stroke="#d8e2a5" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>El cielo de hoy</span>
+      </div>
+      <p>Una mirada al tiempo, una curiosidad y dos juegos nuevos. Elige tu ciudad y prepara la edición de hoy.</p>
+      <label class="form-label" for="cityInput">El tiempo en tu ciudad</label>
       <div class="city-row"><input id="cityInput" type="text" value="Madrid" placeholder="Escribe una ciudad" aria-label="Ciudad"><button class="search-btn" id="searchBtn" aria-label="Buscar ciudad">↗</button></div>
       <button class="geo-btn" id="geoBtn">◎ Usar mi ubicación</button>
       <button class="print-btn" id="printBtn">✳ &nbsp; Crear mi periódico en PDF</button>
@@ -44,8 +140,8 @@
     </section>
     <article class="paper" id="newspaper" aria-label="Vista previa del periódico">
       <div class="paper-content">
-        <div class="paper-top"><span>Un mundo por descubrir</span><span>La edición de hoy</span></div>
-        <header class="masthead"><h2>el diario<br>de Pao</h2><p>El tiempo, ideas y juegos para mirar el mundo</p></header>
+        <div class="paper-top"><span>Una página para mirar el mundo</span><span>La edición de hoy</span></div>
+        <header class="masthead"><h2>el diario<br>de Pao</h2><p>El tiempo, ideas y juegos para llevar en el bolsillo</p></header>
         <div class="edition"><span id="paperDate"></span><b>✦</b><span id="paperPlace">Madrid</span><b>✦</b><span>N.º 001</span></div>
         <h3 class="headline" id="headline">¡Hoy el cielo tiene una historia que contar!</h3>
         <p class="dek" id="dek">Asómate a la ventana: cada día trae un tiempo diferente.</p>
