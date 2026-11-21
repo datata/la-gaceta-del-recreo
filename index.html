@@ -8,479 +8,427 @@
   <title>El diario de Pao — tiempo, juegos y curiosidades</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #193e46;
-      --muted: #657b7b;
-      --canvas: #f4f0e5;
-      --paper: #fffcf3;
-      --leaf: #83a879;
-      --leaf-deep: #4e7b65;
-      --butter: #f4d66d;
-      --coral: #f17f67;
-      --sky: #c5dadd;
-      --rule: #ddd9ca;
-      --display: "Fraunces", Georgia, serif;
+      --ink: #163d42;
+      --muted: #587174;
+      --paper: #f7f4e9;
+      --mist: #e8f0e8;
+      --cobalt: #3659c7;
+      --blue-light: #7890de;
+      --sun: #f2d56b;
+      --coral: #e88368;
+      --leaf: #87ad7f;
+      --leaf-deep: #5b8267;
+      --rule: #9daead;
+      --display: "Bricolage Grotesque", sans-serif;
       --body: "DM Sans", sans-serif;
     }
 
     * { box-sizing: border-box; }
     body {
       margin: 0;
+      background: var(--mist);
       color: var(--ink);
       font-family: var(--body);
-      background-color: var(--canvas);
-      background-image: radial-gradient(#c4bda955 .7px, transparent .8px);
-      background-size: 19px 19px;
     }
     button, input { font: inherit; }
     :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
 
-    .topbar {
-      width: min(1160px, 92vw);
-      margin: 0 auto;
-      padding: 21px 0 9px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+    .site-tools {
+      border-bottom: 1px solid #b7c8c0;
+      background: var(--mist);
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ink);
-      font: 700 17px var(--body);
-      letter-spacing: -.45px;
-    }
-    .brand span {
-      width: 35px;
-      height: 35px;
+    .tools-inner {
+      width: min(1280px, 92vw);
+      margin: auto;
+      padding: 12px 0 9px;
       display: grid;
-      place-items: center;
-      border: 1px solid var(--ink);
-      border-radius: 50% 50% 42% 50%;
-      background: var(--butter);
-      font-size: 18px;
-      transform: rotate(-8deg);
+      grid-template-columns: auto minmax(190px, 260px) auto auto 1fr;
+      align-items: center;
+      gap: 12px;
     }
-    .brand span svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-    .today-label {
-      color: var(--ink);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
-
-    .layout {
-      width: min(1160px, 92vw);
-      margin: 23px auto 70px;
-      display: grid;
-      grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
-      align-items: start;
-      gap: 42px;
-    }
-
-    /* The cover is an illustrated sky, with the controls tucked into its caption. */
-    .intro {
-      position: sticky;
-      top: 20px;
-      overflow: hidden;
-      padding: 29px 27px 25px;
-      border: 1px solid #193e4630;
-      border-radius: 44px 20px 20px 20px;
-      background: var(--sky);
-      color: var(--ink);
-      box-shadow: 7px 7px 0 #e8c8a9;
-    }
-    .intro h1 {
-      margin: 0 0 17px;
-      color: var(--ink);
-      font: 600 clamp(39px, 4.4vw, 55px)/1.02 var(--display);
-      letter-spacing: -2.1px;
-    }
-    .sky-illustration {
-      position: relative;
-      height: 124px;
-      overflow: hidden;
-      margin: 0 0 18px;
-      border: 1px solid #193e4628;
-      border-radius: 52% 18px 18px 18px;
-      background: #7297a1;
-    }
-    .sky-illustration svg { display: block; width: 100%; height: 100%; }
-    .sky-illustration span {
-      position: absolute;
-      right: 10px;
-      bottom: 9px;
-      color: #fff9e9;
-      font: italic 10px var(--display);
-      transform: rotate(-3deg);
-    }
-    .intro > p {
-      max-width: 340px;
-      margin: 0 0 20px;
-      color: #365960;
-      font-size: 13px;
-      line-height: 1.65;
-    }
-    .form-label {
-      display: block;
-      margin: 0 0 7px;
-      color: var(--ink);
-      font-size: 12px;
-      font-weight: 700;
-    }
+    .city-label { font-size: 12px; font-weight: 700; }
     .city-row {
+      min-width: 0;
       display: flex;
-      gap: 4px;
-      padding: 4px;
-      border: 1px solid #193e4633;
-      border-radius: 13px;
-      background: #fffdf7;
-      box-shadow: 2px 3px 0 #193e4610;
+      align-items: center;
+      border-bottom: 1.5px solid var(--ink);
     }
     .city-row input {
       width: 100%;
       min-width: 0;
-      padding: 10px 11px;
+      padding: 8px 5px;
       border: 0;
-      border-radius: 9px;
-      outline: 0;
+      outline: none;
       background: transparent;
       color: var(--ink);
-      font-size: 14px;
+      font-size: 13px;
     }
-    .city-row input:focus { box-shadow: inset 0 0 0 1.5px var(--leaf); }
-    .search-btn {
-      width: 40px;
-      flex: 0 0 40px;
-      border: 0;
-      border-radius: 10px;
-      background: var(--ink);
-      color: #fff9e9;
-      font-size: 19px;
-      cursor: pointer;
-    }
-    .search-btn:hover { background: #315f61; }
-    .search-btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-    .geo-btn {
+    .city-row input:focus-visible { outline-offset: -2px; }
+    .search-btn, .geo-btn, .print-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin: 12px 0 0;
-      padding: 4px 0;
+      justify-content: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 6px 10px;
       border: 0;
-      background: none;
-      color: #254f50;
-      font-size: 12px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
     }
-    .geo-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    .print-btn {
-      width: 100%;
-      margin-top: 12px;
-      padding: 14px 16px;
-      border: 1px solid var(--ink);
-      border-radius: 13px;
-      background: var(--butter);
-      color: var(--ink);
-      box-shadow: 3px 4px 0 var(--ink);
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .16s, box-shadow .16s;
+    .search-btn { width: 34px; padding: 6px; }
+    .search-btn svg, .geo-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
-    .print-btn:hover { transform: translate(2px, 2px); box-shadow: 1px 2px 0 var(--ink); }
-    .hint, .status { color: #476a6d; font-size: 10px; line-height: 1.5; }
-    .hint { max-width: 330px; margin-top: 13px; }
-    .status { min-height: 16px; margin-top: 12px; }
+    .geo-btn { border-left: 1px solid #b7c8c0; }
+    .print-btn { padding-inline: 14px; background: var(--sun); }
+    .search-btn:hover, .geo-btn:hover { color: var(--cobalt); }
+    .print-btn:hover { background: #e7c450; }
+    .status {
+      grid-column: 1 / -1;
+      min-height: 14px;
+      margin: -5px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      text-align: right;
+    }
 
-    /* A warm journal page, with typography and rules borrowed from print. */
-    .paper {
-      position: relative;
-      overflow: hidden;
-      padding: 31px 34px 23px;
-      border: 1px solid #d9d0bc;
-      border-radius: 8px 32px 9px 32px;
-      background: var(--paper);
-      box-shadow: 8px 8px 0 #e5d6bd, 0 22px 50px #4a54421a;
+    .publication {
+      width: min(1280px, 92vw);
+      margin: 0 auto;
+      padding: 0 0 46px;
     }
-    .paper::before {
-      position: absolute;
-      top: 57px;
-      right: 21px;
-      color: #e5b95c;
-      content: "✳";
-      font-size: 30px;
+    .publication-head {
+      padding: 12px 0 16px;
+      border-bottom: 5px solid var(--ink);
     }
-    .paper-content { position: relative; }
-    .paper-top {
+    .masthead-meta, .masthead-baseline {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #cfc8b6;
-      color: #637672;
-      font-size: 8px;
+      align-items: baseline;
+      gap: 18px;
+      color: #49666a;
+      font-size: 10px;
     }
-    .paper-top span:last-child {
-      padding: 5px 9px;
-      border: 1px solid var(--ink);
-      border-radius: 50% 44% 49% 45%;
-      background: var(--butter);
+    .masthead-meta { padding-bottom: 8px; border-bottom: 1px solid #a9b9b3; }
+    .masthead-meta span:first-child { font-weight: 700; }
+    .wordmark {
+      margin: 10px 0 7px;
       color: var(--ink);
-      font-size: 8px;
-      transform: rotate(-2deg);
+      font: 800 clamp(60px, 9.7vw, 126px)/.8 var(--display);
+      letter-spacing: -.075em;
     }
-    .masthead { padding: 18px 0 11px; text-align: center; }
-    .masthead h2 {
-      margin: 0;
-      color: var(--ink);
-      font: 650 clamp(40px, 4.7vw, 55px)/.85 var(--display);
-      letter-spacing: -2.9px;
+    .wordmark span { white-space: nowrap; }
+    .masthead-baseline { padding-top: 9px; }
+    .masthead-baseline span:first-child { font: italic 14px var(--display); }
+    .masthead-baseline i {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 7px 2px;
+      border-radius: 50%;
+      background: var(--coral);
     }
-    .masthead p {
-      margin: 9px 0 0;
-      color: #627574;
-      font: italic 11px/1.5 var(--display);
+    .masthead-baseline b { color: var(--ink); }
+
+    .weather-feature {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+      border-bottom: 2px solid var(--ink);
     }
-    .edition {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 9px;
-      padding: 7px 4px;
-      border-top: 1px solid #cfc8b6;
-      border-bottom: 1px solid #cfc8b6;
-      color: #526b68;
-      font-size: 8px;
+    .feature-copy {
+      padding: 29px 34px 26px 0;
+      align-self: center;
     }
-    .edition b { color: var(--coral); }
+    .feature-rubric {
+      margin: 0 0 13px;
+      color: var(--cobalt);
+      font-size: 12px;
+      font-weight: 800;
+    }
     .headline {
-      margin: 17px 0 6px;
+      max-width: 570px;
+      margin: 0 0 12px;
       color: var(--ink);
-      font: 650 clamp(23px, 2.6vw, 31px)/1.08 var(--display);
-      letter-spacing: -.8px;
-      text-align: center;
+      font: 700 clamp(42px, 5vw, 70px)/.94 var(--display);
+      letter-spacing: -.045em;
     }
     .dek {
-      max-width: 470px;
-      margin: 0 auto 14px;
-      color: #5f7774;
-      font: italic 12px/1.5 var(--display);
-      text-align: center;
+      max-width: 480px;
+      margin: 0 0 24px;
+      color: #435e61;
+      font: 500 15px/1.55 var(--body);
     }
-    .weather-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-      padding: 16px 19px;
-      border: 1px solid #9bb4a1;
-      border-radius: 19px 7px 19px 7px;
-      background: #dce9df;
+    .feature-location {
+      margin-bottom: 3px;
+      color: var(--ink);
+      font: 700 19px var(--body);
     }
-    .weather-card::after {
-      position: absolute;
-      top: -63px;
-      right: -24px;
-      width: 105px;
-      height: 105px;
-      border: 1px solid #fff9;
-      border-radius: 50%;
-      box-shadow: 0 0 0 12px #fff5, 0 0 0 24px #fff3;
-      content: "";
-    }
-    .weather-card > div { position: relative; z-index: 1; }
-    .weather-kicker { color: #4e7562; font-size: 9px; }
-    .weather-location { margin-top: 5px; color: var(--ink); font: 650 19px var(--body); }
-    .weather-desc { margin-top: 3px; color: #536d68; font-size: 11px; }
-    .temperature { color: #244c39; font: 600 48px/.95 var(--display); letter-spacing: -2px; white-space: nowrap; }
-    .weather-icon { display: inline-block; width: 44px; height: 44px; margin-right: 4px; vertical-align: -8px; }
-    .weather-icon svg { display: block; width: 100%; height: 100%; }
+    .weather-desc { margin: 0; color: #49676a; font-size: 13px; }
     .weather-meta {
       display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 14px;
+      gap: 20px;
+      max-width: 390px;
+      margin-top: 17px;
       padding-top: 9px;
-      border-top: 1px solid #b7c9b8;
-      color: #526e63;
-      font-size: 9px;
+      border-top: 1px solid #a9b9b3;
+      color: #49676a;
+      font-size: 11px;
     }
-    .section-title { margin: 15px 0 7px; color: var(--ink); font: 650 17px var(--display); letter-spacing: -.25px; }
-    .bottom-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 15px; }
-    .story { margin: 0; color: #526966; font-size: 11px; line-height: 1.65; }
-    .fact {
-      padding: 10px 12px;
-      border: 1px solid #e7d8ae;
-      border-radius: 5px 13px 5px 13px;
-      background: #f6efd9;
-      color: #52645c;
-      font: 11px/1.55 var(--body);
+    .weather-scene {
+      min-width: 0;
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      background: var(--cobalt);
     }
-    .fact .pill {
-      display: inline-block;
-      margin-bottom: 6px;
-      padding: 4px 7px;
-      border-radius: 5px 10px;
-      background: var(--butter);
-      color: #254c49;
-      font: 700 8px var(--body);
+    .scene-landscape { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .weather-stamp {
+      position: absolute;
+      top: 35px;
+      right: 30px;
+      left: 34px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
     }
-    .forecast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
-    .day { padding: 8px 3px; border: 1px solid #dfd9c8; border-radius: 7px 11px; background: #f7f5ea; text-align: center; }
-    .day-name { color: #667873; font-size: 8px; }
-    .day-icon { display: block; width: 25px; height: 25px; margin: 5px auto; }
-    .day-icon svg { display: block; width: 100%; height: 100%; }
-    .day-temp { color: var(--ink); font: 650 12px var(--body); }
-    .day-rain { margin-top: 2px; color: #6f827b; font-size: 8px; }
-    .paper-footer { margin-top: 19px; padding-top: 10px; border-top: 1px solid #d4cbb8; color: #6c7c74; font: italic 9px var(--display); text-align: center; }
+    .weather-icon { display: block; width: 92px; height: 92px; flex: 0 0 92px; }
+    .weather-icon svg { display: block; width: 100%; height: 100%; }
+    .temperature { color: #fff9e8; font: 800 clamp(76px, 9vw, 126px)/.8 var(--display); letter-spacing: -.07em; }
+    .scene-caption {
+      position: absolute;
+      right: 17px;
+      bottom: 12px;
+      margin: 0;
+      color: #fff9e8;
+      font: italic 11px var(--display);
+    }
 
-    /* Daily games keep the feeling of printed activities, not app widgets. */
-    .daily-games { display: block; }
-    .puzzle-section, .sudoku-section {
-      margin-top: 14px;
-      padding: 13px 14px;
-      border: 1px solid #dfd5bd;
-      border-radius: 6px 17px;
-      background: #f8f3e7;
+    .weather-columns {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      border-bottom: 1px solid #a9b9b3;
     }
-    .puzzle-heading, .sudoku-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-    .puzzle-heading .section-title, .sudoku-heading .section-title { margin: 0 0 3px; font-size: 16px; }
-    .puzzle-tag { padding: 5px 7px; border: 1px solid #d4bb61; border-radius: 4px 10px; background: #e9edce; color: #58734f; font-size: 8px; white-space: nowrap; }
-    .puzzle-subtitle, .sudoku-subtitle { margin: 0 0 12px; color: #657974; font-size: 9px; }
-    .puzzle-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(108px, .85fr); align-items: center; gap: 14px; }
-    .word-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); max-width: 300px; gap: 2px; }
+    .reporter-note, .forecast-note { padding: 19px 22px 18px 0; }
+    .forecast-note { padding-right: 0; padding-left: 24px; border-left: 1px solid #a9b9b3; }
+    .section-title {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font: 700 22px/1.05 var(--display);
+      letter-spacing: -.025em;
+    }
+    .story { max-width: 560px; margin: 0; color: #435e61; font-size: 13px; line-height: 1.7; }
+    .forecast { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .day { min-width: 0; padding: 4px 13px 2px; border-left: 1px solid #bcc9c1; text-align: center; }
+    .day:first-child { padding-left: 0; border-left: 0; }
+    .day-name { color: #526e71; font-size: 11px; }
+    .day-icon { display: block; width: 37px; height: 37px; margin: 4px auto; }
+    .day-icon svg { display: block; width: 100%; height: 100%; }
+    .day-temp { color: var(--ink); font: 700 14px var(--body); }
+    .day-rain { margin-top: 3px; color: #5c7375; font-size: 10px; }
+
+    .field-notes {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      border-bottom: 5px solid var(--ink);
+    }
+    .fact-note, .mission-note { padding: 17px 24px 18px 0; }
+    .mission-note { padding-right: 0; padding-left: 24px; border-left: 1px solid #a9b9b3; }
+    .fact-note .section-title, .mission-note .section-title { font-size: 20px; }
+    .fact-note p, .mission-note p { max-width: 580px; margin: 0; color: #435e61; font: 15px/1.6 var(--body); }
+    .fact-note p::first-letter { color: var(--cobalt); font: 700 24px var(--display); }
+
+    .games-section { padding-top: 19px; }
+    .games-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .games-heading h2 { margin: 0; color: var(--ink); font: 700 36px/1 var(--display); letter-spacing: -.04em; }
+    .games-heading p { margin: 0; color: #526e71; font: italic 12px var(--display); }
+    .daily-games { display: grid; grid-template-columns: 1fr 1fr; }
+    .puzzle-section, .sudoku-section { min-width: 0; padding: 17px 23px 10px 0; }
+    .sudoku-section { padding-right: 0; padding-left: 23px; border-left: 1px solid #a9b9b3; }
+    .puzzle-heading, .sudoku-heading { margin-bottom: 10px; }
+    .puzzle-heading .section-title, .sudoku-heading .section-title { margin-bottom: 4px; font-size: 23px; }
+    .puzzle-subtitle, .sudoku-subtitle { margin: 0; color: #526e71; font-size: 11px; line-height: 1.45; }
+    .puzzle-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(110px, .7fr); align-items: center; gap: 15px; }
+    .word-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); max-width: 390px; gap: 2px; }
     .letter-cell {
       aspect-ratio: 1;
       padding: 0;
-      border: 1px solid #e5decf;
-      border-radius: 2px;
-      background: #fffdf6;
-      color: #24484a;
-      font: 700 clamp(10px, 1.5vw, 13px) var(--body);
+      border: 1px solid #c8d2c7;
+      background: transparent;
+      color: var(--ink);
+      font: 700 clamp(10px, 1.2vw, 14px) var(--body);
       cursor: pointer;
-      transition: background .12s, border-color .12s;
+      transition: background .12s, color .12s;
     }
-    .letter-cell:hover { border-color: var(--leaf); }
-    .letter-cell.selected { border-color: #c2a748; background: var(--butter); color: var(--ink); }
-    .letter-cell.found { border-color: var(--leaf); background: #cadfbe; color: #214b3b; }
-    .word-side-title { margin-bottom: 7px; color: #668078; font-size: 8px; }
-    .word-list { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
-    .word-list li { display: flex; align-items: center; gap: 7px; color: #425e58; font: 600 11px var(--body); }
-    .word-list li::before { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: var(--leaf); content: ""; }
-    .word-list li.found-word { color: #839184; text-decoration: line-through; }
-    .word-list li.found-word::before { display: grid; place-items: center; width: 13px; height: 13px; flex-basis: 13px; background: #c8ddb9; color: #28523d; content: "✓"; font: 700 9px var(--body); }
-    .puzzle-actions { display: flex; justify-content: space-between; align-items: center; gap: 9px; margin-top: 12px; }
-    .check-word { padding: 8px 11px; border: 0; border-radius: 9px; background: var(--ink); color: #fff9e9; font-size: 10px; font-weight: 800; cursor: pointer; }
-    .check-word:hover, .sudoku-check:hover { background: #315f61; }
-    .puzzle-status { color: #627771; font-size: 9px; line-height: 1.4; text-align: right; }
-    .puzzle-status.success, .sudoku-status.success { color: #36724a; font-weight: 700; }
+    .letter-cell:hover { background: #d7e4da; }
+    .letter-cell.selected { background: var(--sun); color: var(--ink); }
+    .letter-cell.found { background: #a9ca9e; color: var(--ink); }
+    .word-side-title { margin-bottom: 7px; color: #526e71; font-size: 10px; }
+    .word-list { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 9px; margin: 0; padding: 0; list-style: none; }
+    .word-list li { color: #294e53; font: 600 11px var(--body); }
+    .word-list li.found-word { color: #718780; text-decoration: line-through; }
+    .word-list li.found-word::before { content: "✓ "; color: var(--leaf-deep); }
+    .puzzle-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
+    .check-word, .sudoku-check {
+      padding: 8px 12px;
+      border: 0;
+      background: var(--cobalt);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .check-word:hover, .sudoku-check:hover { background: #2547b2; }
+    .puzzle-status { color: #526e71; font-size: 10px; line-height: 1.4; text-align: right; }
+    .puzzle-status.success, .sudoku-status.success { color: #315f3c; font-weight: 700; }
 
-    .sudoku-section { background: #eef3eb; }
-    .sudoku-layout { display: grid; grid-template-columns: minmax(0, 1fr) 110px; align-items: center; gap: 12px; }
-    .sudoku-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(100%, 270px); overflow: hidden; border: 2px solid #557e69; border-radius: 4px; background: #fff; }
+    .sudoku-layout { display: grid; grid-template-columns: minmax(0, 1fr) 105px; align-items: center; gap: 14px; }
+    .sudoku-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(100%, 300px); overflow: hidden; border: 2px solid var(--ink); background: transparent; }
     .sudoku-cell {
       aspect-ratio: 1;
       padding: 0;
       border: 0;
-      border-right: 1px solid #dfe6dc;
-      border-bottom: 1px solid #dfe6dc;
-      background: #fff;
+      border-right: 1px solid #9eafa8;
+      border-bottom: 1px solid #9eafa8;
+      background: transparent;
       color: var(--ink);
       font: 600 16px var(--body);
       cursor: pointer;
     }
     .sudoku-cell:nth-child(6n) { border-right: 0; }
     .sudoku-cell:nth-last-child(-n+6) { border-bottom: 0; }
-    .sudoku-cell.box-right, .sudoku-cell.box-bottom { border-color: var(--leaf); }
-    .sudoku-cell.given { background: #e5ecdd; color: #315840; font-weight: 800; cursor: default; }
-    .sudoku-cell.selected, .sudoku-number:hover, .sudoku-clear:hover { background: var(--butter); color: var(--ink); }
-    .sudoku-cell.error { background: #f8d7c9; color: #8d4135; }
+    .sudoku-cell.box-right, .sudoku-cell.box-bottom { border-color: var(--cobalt); }
+    .sudoku-cell.given { background: #dbe6dc; color: var(--ink); font-weight: 800; cursor: default; }
+    .sudoku-cell.selected, .sudoku-number:hover, .sudoku-clear:hover { background: var(--sun); color: var(--ink); }
+    .sudoku-cell.error { background: #f5c2af; color: #773a32; }
     .sudoku-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
     .sudoku-number, .sudoku-clear {
-      min-height: 28px;
-      border: 1px solid #ccd8ca;
-      border-radius: 5px;
-      background: #fff;
-      color: #315840;
+      min-height: 29px;
+      border: 1px solid #9eafa8;
+      background: transparent;
+      color: var(--ink);
       font: 700 12px var(--body);
       cursor: pointer;
     }
-    .sudoku-clear { grid-column: span 3; font-size: 9px; }
-    .sudoku-check { grid-column: span 3; min-height: 30px; border: 0; border-radius: 8px; background: var(--ink); color: #fff9e9; font: 700 9px var(--body); cursor: pointer; }
-    .sudoku-status { grid-column: span 3; min-height: 18px; color: #627771; font-size: 8px; line-height: 1.35; text-align: center; }
-
-    @media (max-width: 800px) {
-      .layout { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 17px; }
-      .intro { position: relative; padding: 25px 24px 22px; }
-      .intro h1 { font-size: clamp(41px, 9vw, 54px); }
-      .sky-illustration { height: 115px; }
-      .paper { padding: 27px 25px 21px; }
+    .sudoku-clear { grid-column: span 3; font-size: 10px; }
+    .sudoku-check { grid-column: span 3; min-height: 31px; }
+    .sudoku-status { grid-column: span 3; min-height: 18px; color: #526e71; font-size: 9px; line-height: 1.4; text-align: center; }
+    .paper-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 9px;
+      border-top: 1px solid #9eafa8;
+      color: #526e71;
+      font-size: 10px;
     }
-    @media (max-width: 520px) {
-      .topbar { padding: 17px 0; }
-      .brand { font-size: 15px; }
-      .today-label { font-size: 10px; }
-      .layout { width: 91vw; gap: 25px; }
-      .intro { padding: 23px 20px 20px; border-radius: 35px 18px 18px 18px; }
-      .intro h1 { font-size: 42px; letter-spacing: -1.8px; }
-      .sky-illustration { height: 105px; }
-      .paper { padding: 22px 16px 18px; border-radius: 6px 24px 6px 24px; }
-      .paper-top { font-size: 8px; }
-      .paper-top span:last-child { font-size: 7px; }
-      .masthead h2 { font-size: 42px; }
-      .edition { gap: 6px; font-size: 8px; }
-      .weather-card { padding: 14px 13px; }
-      .temperature { font-size: 40px; }
-      .weather-icon { width: 37px; height: 37px; margin-right: 1px; }
-      .weather-meta { gap: 8px; }
-      .bottom-grid { gap: 10px; }
-      .section-title { font-size: 16px; }
-      .day { padding: 8px 2px; }
-      .puzzle-section, .sudoku-section { padding: 12px 10px; }
-      .puzzle-layout { grid-template-columns: minmax(0, 1fr) 84px; gap: 7px; }
-      .sudoku-layout { grid-template-columns: minmax(0, 1fr) 88px; gap: 7px; }
-      .word-list li { font-size: 9px; }
-      .sudoku-cell { font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .tools-inner { grid-template-columns: auto minmax(170px, 1fr) auto auto; }
+      .status { grid-column: 1 / -1; }
+      .publication { width: min(760px, 90vw); }
+      .weather-feature { grid-template-columns: 1fr 1fr; }
+      .feature-copy { padding-right: 22px; }
+      .weather-scene { min-height: 340px; }
+      .headline { font-size: clamp(40px, 6.6vw, 62px); }
+      .puzzle-layout { grid-template-columns: minmax(0, 1fr) 100px; gap: 10px; }
+      .sudoku-layout { grid-template-columns: minmax(0, 1fr) 90px; gap: 8px; }
+    }
+    @media (max-width: 620px) {
+      .tools-inner { width: 92vw; grid-template-columns: auto 1fr auto; gap: 6px 9px; }
+      .city-label { grid-column: 1; }
+      .city-row { grid-column: 2; }
+      .geo-btn { grid-column: 3; padding-inline: 5px; }
+      .geo-btn span { display: none; }
+      .print-btn { grid-column: 1 / 4; min-height: 38px; }
+      .status { text-align: left; }
+      .publication { width: 92vw; padding-bottom: 28px; }
+      .publication-head { padding-top: 10px; border-bottom-width: 3px; }
+      .masthead-meta, .masthead-baseline { gap: 8px; font-size: 8px; }
+      .masthead-meta span:first-child { max-width: 105px; }
+      .masthead-baseline span:first-child { font-size: 11px; }
+      .wordmark { margin: 13px 0 9px; font-size: clamp(44px, 12vw, 68px); line-height: .84; letter-spacing: -.07em; }
+      .wordmark span { white-space: normal; }
+      .masthead-baseline span:last-child { text-align: right; }
+      .weather-feature { grid-template-columns: 1fr; }
+      .feature-copy { padding: 21px 0 19px; }
+      .feature-rubric { margin-bottom: 8px; }
+      .headline { max-width: 540px; font-size: clamp(42px, 11vw, 60px); }
+      .dek { margin-bottom: 17px; font-size: 14px; }
+      .weather-scene { min-height: 270px; }
+      .weather-stamp { top: 20px; right: 19px; left: 21px; }
+      .weather-icon { width: 68px; height: 68px; flex-basis: 68px; }
+      .temperature { font-size: clamp(78px, 23vw, 106px); }
+      .weather-columns, .field-notes { grid-template-columns: 1fr; }
+      .reporter-note, .forecast-note, .fact-note, .mission-note { padding: 15px 0; }
+      .forecast-note, .mission-note { border-left: 0; border-top: 1px solid #a9b9b3; }
+      .section-title { font-size: 20px; }
+      .fact-note p, .mission-note p { font-size: 14px; }
+      .games-heading { display: block; padding-bottom: 8px; }
+      .games-heading h2 { font-size: 31px; }
+      .games-heading p { margin-top: 5px; }
+      .daily-games { grid-template-columns: 1fr; }
+      .puzzle-section, .sudoku-section { padding: 15px 0; }
+      .sudoku-section { border-left: 0; border-top: 1px solid #a9b9b3; }
+      .puzzle-layout { grid-template-columns: minmax(0, 1fr) 110px; gap: 14px; }
+      .word-grid { gap: 2px; }
+      .letter-cell { font-size: clamp(12px, 4vw, 16px); }
+      .word-list { grid-template-columns: 1fr; }
+      .sudoku-layout { grid-template-columns: minmax(0, 1fr) 105px; gap: 14px; }
+      .sudoku-grid { width: min(100%, 310px); }
+      .paper-footer { display: block; line-height: 1.6; }
+      .paper-footer span { display: block; }
     }
     @media print {
-      @page { size: A4; margin: 9mm; }
-      body { background: #fff; background-image: none; }
-      .topbar, .intro { display: none !important; }
-      .layout { display: block; width: auto; margin: 0; }
-      .paper { padding: 3mm 6mm; border: 0; border-radius: 0; background: #fff; box-shadow: none; }
-      .paper::before { display: none; }
-      .paper-top span:last-child { padding: 0; border: 0; background: transparent; transform: none; }
-      .masthead h2 { font-size: 37pt; }
-      .weather-card { background: #e6eee5; }
-      .daily-games { display: grid; grid-template-columns: 1.08fr .92fr; align-items: start; gap: 8px; margin-top: 10px; }
-      .puzzle-section, .sudoku-section { break-inside: avoid; margin: 0; padding: 8px; border-radius: 10px; }
-      .puzzle-heading, .sudoku-heading { display: block; }
-      .puzzle-tag { display: none; }
-      .puzzle-subtitle, .sudoku-subtitle { margin-bottom: 5px; font-size: 8px; }
-      .puzzle-layout, .sudoku-layout { grid-template-columns: 1fr; gap: 5px; }
-      .word-grid { width: min(100%, 180px); max-width: 180px; gap: 1px; }
-      .letter-cell { border-radius: 1px; font-size: 8pt; }
-      .word-side-title { margin: 4px 0; font-size: 7px; }
-      .word-list { display: flex; flex-wrap: wrap; gap: 3px 7px; }
-      .word-list li { font-size: 8px; }
-      .word-list li::before { width: 4px; height: 4px; flex-basis: 4px; }
-      .puzzle-actions { margin-top: 4px; }
-      .check-word, .sudoku-controls { display: none; }
+      @page { size: A4; margin: 8mm; }
+      body { background: #fff; }
+      .site-tools { display: none; }
+      .publication { width: auto; max-width: none; margin: 0; padding: 0; }
+      .publication-head { padding-top: 0; }
+      .wordmark { margin: 8px 0; font-size: 47pt; }
+      .weather-feature { grid-template-columns: .9fr 1.1fr; }
+      .feature-copy { padding: 12px 16px 12px 0; }
+      .headline { font-size: 26pt; }
+      .dek { margin-bottom: 12px; font-size: 10pt; }
+      .weather-scene { min-height: 60mm; }
+      .weather-stamp { top: 12px; left: 18px; }
+      .weather-icon { width: 44px; height: 44px; flex-basis: 44px; }
+      .temperature { font-size: 56pt; }
+      .weather-columns { grid-template-columns: .9fr 1.1fr; }
+      .field-notes { grid-template-columns: 1.2fr .8fr; }
+      .reporter-note, .forecast-note, .fact-note, .mission-note { padding-block: 8px; }
+      .forecast-note, .mission-note { border-top: 0; border-left: 1px solid #9eafa8; }
+      .daily-games { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .puzzle-section, .sudoku-section { padding: 10px 12px 6px 0; }
+      .sudoku-section { padding-right: 0; padding-left: 12px; border-top: 0; border-left: 1px solid #9eafa8; }
+      .puzzle-layout, .sudoku-layout { grid-template-columns: minmax(0, 1fr) 90px; gap: 8px; }
+      .letter-cell { font-size: 8pt; }
+      .sudoku-grid { width: min(100%, 155px); }
+      .sudoku-cell { font-size: 9pt; }
+      .sudoku-controls { display: none; }
+      .check-word { display: none; }
       .puzzle-status { font-size: 0; text-align: left; }
-      .puzzle-status::after { font-size: 8px; content: "Busca las palabras en horizontal, vertical o diagonal."; }
-      .sudoku-grid { width: min(100%, 150px); border-radius: 4px; }
-      .sudoku-cell { font-size: 10pt; }
-      .sudoku-status { display: none; }
+      .puzzle-status::after { font-size: 8pt; content: "Busca las palabras en horizontal, vertical o diagonal."; }
+      .paper-footer { margin-top: 10px; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -488,65 +436,93 @@
     }
   </style>
 </head>
-<body>
-  <header class="topbar"><div class="brand"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4"/></svg></span> El diario de Pao</div><div class="today-label" id="todayLabel"></div></header>
-  <main class="layout">
-    <section class="intro" aria-label="Crear tu periódico">
-      <h1>¿Qué tiempo<br>nos espera hoy?</h1>
-      <div class="sky-illustration" aria-hidden="true">
-        <svg viewBox="0 0 420 150" role="presentation">
-          <path d="M0 116c47-28 77-17 123 2s80 11 121-10 104-23 176 6v36H0z" fill="#82a77e"/>
-          <path d="M0 128c56-14 94-5 134 7s94 11 139-5 91-14 147 0v20H0z" fill="#5f896f"/>
-          <circle cx="90" cy="55" r="25" fill="#f4d66d"/>
-          <path d="M90 13v-9M90 105v-9M48 55h-9M141 55h-9M60 25l-7-7M127 92l-7-7M120 25l7-7M53 92l7-7" stroke="#f4d66d" stroke-width="5" stroke-linecap="round"/>
-          <path d="M221 86c0-14 11-25 25-25 4-17 19-29 38-29 20 0 37 16 38 36 14 2 24 14 24 28 0 16-13 29-29 29h-66c-17 0-30-13-30-29 0-4 0-7 1-10" fill="#fff9e9"/>
-          <path d="M282 22c7-7 18-7 25 0M347 44l4-7M374 80l9 2" fill="none" stroke="#fff9e9" stroke-width="3" stroke-linecap="round"/>
-          <path d="M173 72c7-7 14-7 21 0M189 80c6-6 12-6 18 0" fill="none" stroke="#fff3d3" stroke-width="3" stroke-linecap="round"/>
-          <path d="M25 119c9-12 19-12 28 0M360 125c8-12 17-12 25 0" fill="none" stroke="#d8e2a5" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <span>El cielo de hoy</span>
-      </div>
-      <p>Una mirada al tiempo, una curiosidad y dos juegos nuevos. Elige tu ciudad y prepara la edición de hoy.</p>
-      <label class="form-label" for="cityInput">El tiempo en tu ciudad</label>
+ <body>
+  <header class="site-tools" aria-label="Herramientas del diario">
+    <div class="tools-inner">
+      <label class="city-label" for="cityInput">El tiempo en</label>
       <div class="city-row"><input id="cityInput" type="text" value="Madrid" placeholder="Escribe una ciudad" aria-label="Ciudad"><button class="search-btn" id="searchBtn" aria-label="Buscar ciudad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button></div>
-      <button class="geo-btn" id="geoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg> Usar mi ubicación</button>
-      <button class="print-btn" id="printBtn">Imprimir o guardar como PDF</button>
-      <div class="hint">Se abrirá la ventana de impresión. Elige <b>«Guardar como PDF»</b> para descargarlo.</div>
+      <button class="geo-btn" id="geoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg><span>Mi ubicación</span></button>
+      <button class="print-btn" id="printBtn">Imprimir / guardar PDF</button>
       <div class="status" id="status" role="status" aria-live="polite">Buscando el tiempo de Madrid…</div>
-    </section>
-    <article class="paper" id="newspaper" aria-label="Vista previa del periódico">
-      <div class="paper-content">
-        <div class="paper-top"><span>Una página para mirar el mundo</span><span>La edición de hoy</span></div>
-        <header class="masthead"><h2>el diario<br>de Pao</h2><p>El tiempo, ideas y juegos para llevar en el bolsillo</p></header>
-        <div class="edition"><span id="paperDate"></span><b>✦</b><span id="paperPlace">Madrid</span><b>✦</b><span>N.º 001</span></div>
-        <h3 class="headline" id="headline">¡Hoy el cielo tiene una historia que contar!</h3>
+    </div>
+  </header>
+
+  <main class="publication" id="newspaper" aria-label="El diario de Pao">
+    <header class="publication-head">
+      <div class="masthead-meta"><span>Una edición hecha para mirar el mundo</span><time id="todayLabel"></time><span>Historias para llevar</span></div>
+      <h1 class="wordmark">El diario <span>de Pao</span></h1>
+      <div class="masthead-baseline"><span>Pequeñas noticias para grandes curiosidades</span><span>Fecha <time id="paperDate"></time> <i></i> Lugar <b id="paperPlace">Madrid</b></span></div>
+    </header>
+
+    <section class="weather-feature" aria-label="El tiempo de hoy">
+      <div class="feature-copy">
+        <p class="feature-rubric">La noticia del día</p>
+        <h2 class="headline" id="headline">¡Hoy el cielo tiene una historia que contar!</h2>
         <p class="dek" id="dek">Asómate a la ventana: cada día trae un tiempo diferente.</p>
-        <section class="weather-card" aria-label="El tiempo de hoy">
-          <div><div class="weather-kicker">El cielo de hoy</div><div class="weather-location" id="weatherLocation">Madrid, España</div><div class="weather-desc" id="weatherDesc">Cargando el pronóstico…</div><div class="weather-meta"><span id="highLow">Máx. —° · Mín. —°</span><span id="wind">Viento — km/h</span></div></div>
-          <div class="temperature"><span class="weather-icon" id="weatherIcon"></span><span id="temperature">—°</span></div>
-        </section>
-        <div class="bottom-grid">
-          <section><h3 class="section-title">El reportero del tiempo</h3><p class="story" id="story">¿Sabías que el tiempo cambia porque el aire y las nubes están siempre en movimiento? ¡Hoy tenemos una nueva aventura meteorológica!</p></section>
-          <section><h3 class="section-title">La semana en el cielo</h3><div class="forecast" id="forecast"><div class="day"><div class="day-name">Mañana</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Pasado</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Después</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div></div></section>
+        <div class="feature-location" id="weatherLocation">Madrid, España</div>
+        <p class="weather-desc" id="weatherDesc">Cargando el pronóstico…</p>
+        <div class="weather-meta"><span id="highLow">Máx. —° · Mín. —°</span><span id="wind">Viento — km/h</span></div>
+      </div>
+      <div class="weather-scene" aria-label="Ilustración del tiempo de hoy">
+        <svg class="scene-landscape" viewBox="0 0 720 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M0 305c82-37 154-20 226 9s127 28 203-12 167-44 291-3v181H0z" fill="#f2d56b"/>
+          <path d="M0 355c95-45 162-13 244 12s166 32 254-13 150-36 222-10v136H0z" fill="#87ad7f"/>
+          <path d="M0 402c113-29 213-17 306 2s225 17 414-24v100H0z" fill="#5b8267"/>
+          <path d="M89 480c34-46 42-92 19-139m29 139c-7-50-1-92 26-131M595 480c-30-42-37-83-21-123m-32 123c4-48-1-82-24-116" fill="none" stroke="#f8edc2" stroke-width="8" stroke-linecap="round"/>
+          <path d="M84 378c-19-21-38-19-57 2m67-2c20-22 39-20 57 1m422 10c-18-21-36-18-53 2m65-3c17-18 33-18 49 0" fill="none" stroke="#f8edc2" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="186" cy="371" r="8" fill="#eb8269"/><circle cx="620" cy="411" r="7" fill="#eb8269"/><circle cx="565" cy="399" r="6" fill="#f4d66d"/>
+          <path d="M0 0h720v165c-99 32-182 17-274-2S281 141 195 166 49 199 0 180z" fill="#3659c7"/>
+          <path d="M0 207c94-37 156-23 242 3s159 34 250 2 151-33 228-8" fill="none" stroke="#7890de" stroke-width="3"/>
+          <path d="M0 238c99-35 176-15 258 8s153 25 232 0 150-37 230-15" fill="none" stroke="#7890de" stroke-width="2"/>
+          <path d="M472 360c40-39 69-48 103-33m-93 50c45-41 81-45 117-25" fill="none" stroke="#f9f0d4" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div class="weather-stamp"><span class="weather-icon" id="weatherIcon"></span><strong id="temperature">—°</strong></div>
+        <p class="scene-caption">Así se ve el cielo desde aquí</p>
+      </div>
+    </section>
+
+    <section class="weather-columns">
+      <article class="reporter-note">
+        <h2 class="section-title">El reportero del tiempo</h2>
+        <p class="story" id="story">¿Sabías que el tiempo cambia porque el aire y las nubes están siempre en movimiento? ¡Hoy tenemos una nueva aventura meteorológica!</p>
+      </article>
+      <section class="forecast-note" aria-label="Pronóstico de los próximos días">
+        <h2 class="section-title">Lo que viene después</h2>
+        <div class="forecast" id="forecast">
+          <div class="day"><div class="day-name">Mañana</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div>
+          <div class="day"><div class="day-name">Pasado</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div>
+          <div class="day"><div class="day-name">Después</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div>
         </div>
-        <div class="bottom-grid">
-          <section><h3 class="section-title">Un dato genial</h3><div class="fact"><span class="pill">¿Sabías que…?</span><br><span id="fact">Las gotas de lluvia no tienen forma de lágrima: ¡las pequeñas son casi redondas!</span></div></section>
-          <section><h3 class="section-title">Tu misión de hoy</h3><div class="fact">Dibuja el cielo de hoy. ¿Qué formas encuentras en las nubes? ¡Quizá un dragón o un barco pirata!</div></section>
-        </div>
-        <div class="daily-games">
+      </section>
+    </section>
+
+    <section class="field-notes" aria-label="Curiosidad y misión del día">
+      <article class="fact-note">
+        <h2 class="section-title">Una cosa increíble</h2>
+        <p id="fact">Las gotas de lluvia no tienen forma de lágrima: ¡las pequeñas son casi redondas!</p>
+      </article>
+      <article class="mission-note">
+        <h2 class="section-title">Tu misión de hoy</h2>
+        <p>Dibuja el cielo de hoy. ¿Qué formas encuentras en las nubes? ¡Quizá un dragón o un barco pirata!</p>
+      </article>
+    </section>
+
+    <section class="games-section" aria-label="Pasatiempos del día">
+      <header class="games-heading"><h2>Ahora te toca jugar</h2><p>Dos retos nuevos para pensar, mirar y probar.</p></header>
+      <div class="daily-games">
         <section class="puzzle-section" aria-label="Sopa de letras diaria">
-          <div class="puzzle-heading"><div><h3 class="section-title">Sopa de letras</h3><p class="puzzle-subtitle" id="puzzleTheme">Un reto nuevo cada día</p></div><span class="puzzle-tag">Pasatiempo diario</span></div>
+          <div class="puzzle-heading"><div><h3 class="section-title">Sopa de letras</h3><p class="puzzle-subtitle" id="puzzleTheme">Un reto nuevo cada día</p></div></div>
           <div class="puzzle-layout"><div class="word-grid" id="wordGrid" role="group" aria-label="Cuadrícula de letras"></div><div><div class="word-side-title">Encuentra estas palabras</div><ul class="word-list" id="wordList"></ul></div></div>
-          <div class="puzzle-actions"><button class="check-word" id="checkWord">¡He encontrado una!</button><div class="puzzle-status" id="puzzleStatus" aria-live="polite">Pulsa las letras de una palabra y comprueba.</div></div>
+          <div class="puzzle-actions"><button class="check-word" id="checkWord">Comprobar palabra</button><div class="puzzle-status" id="puzzleStatus" aria-live="polite">Pulsa las letras de una palabra y comprueba.</div></div>
         </section>
         <section class="sudoku-section" aria-label="Sudoku infantil diario">
-          <div class="sudoku-heading"><div><h3 class="section-title">Sudoku</h3><p class="sudoku-subtitle">Completa cada fila, columna y bloque con números del 1 al 6.</p></div><span class="puzzle-tag">Reto diario</span></div>
+          <div class="sudoku-heading"><div><h3 class="section-title">Sudoku</h3><p class="sudoku-subtitle">Completa cada fila, columna y bloque con números del 1 al 6.</p></div></div>
           <div class="sudoku-layout"><div class="sudoku-grid" id="sudokuGrid" role="group" aria-label="Cuadrícula de sudoku"></div><div class="sudoku-controls" id="sudokuControls" aria-label="Controles del sudoku"><button class="sudoku-number" data-number="1">1</button><button class="sudoku-number" data-number="2">2</button><button class="sudoku-number" data-number="3">3</button><button class="sudoku-number" data-number="4">4</button><button class="sudoku-number" data-number="5">5</button><button class="sudoku-number" data-number="6">6</button><button class="sudoku-clear" id="sudokuClear">Borrar</button><button class="sudoku-check" id="sudokuCheck">Comprobar</button><div class="sudoku-status" id="sudokuStatus" aria-live="polite">Elige una casilla vacía.</div></div></div>
         </section>
-        </div>
-        <footer class="paper-footer">El diario de Pao · Hecho para leer, imaginar y compartir · ¡Mañana hay nuevas sorpresas!</footer>
       </div>
-    </article>
+    </section>
+
+    <footer class="paper-footer"><span>El diario de Pao</span><span>Lee, imagina, cuenta lo que descubriste.</span></footer>
   </main>
   <script>
     const $=id=>document.getElementById(id);
