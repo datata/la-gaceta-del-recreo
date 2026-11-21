@@ -10,110 +10,486 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#192e29;--muted:#77827b;--canvas:#f5f6f1;--paper:#fff;--green:#214e3e;--green-dark:#17382e;--lime:#d9f27b;--coral:#ff9275;--sky:#e5f2ec;--line:#e6e9e2;--serif:'Fraunces',Georgia,serif}
-    *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:'DM Sans',sans-serif}button,input{font:inherit}.topbar{width:min(1190px,92vw);margin:auto;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font:700 17px 'Outfit',sans-serif;letter-spacing:-.3px}.brand span{display:grid;place-items:center;background:var(--green);color:#fff;border-radius:12px;width:36px;height:36px;font-size:19px}.today-label{font-size:12px;color:var(--muted);font-weight:600}.layout{width:min(1190px,92vw);margin:25px auto 70px;display:grid;grid-template-columns:minmax(300px,.77fr) minmax(0,1.23fr);gap:46px;align-items:start}.intro{padding:28px 0 0;position:sticky;top:20px}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e6eddd;color:var(--green);border-radius:99px;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.3px}.eyebrow:before{content:'✦';color:#e08d58;font-size:13px}h1{font:700 clamp(48px,6vw,75px)/.98 'Outfit',sans-serif;letter-spacing:-4.5px;margin:22px 0 17px}h1 em{font-family:'Fraunces',serif;font-weight:600;color:#4a8062;letter-spacing:-4px}.intro>p{max-width:360px;color:#66736b;font-size:15px;line-height:1.7;margin:0 0 30px}.form-label{display:block;font-size:11px;font-weight:800;letter-spacing:.3px;margin:0 0 8px}.city-row{display:flex;gap:8px;padding:5px;background:white;border:1px solid #e4e7df;border-radius:15px;box-shadow:0 5px 18px #263a2c08}.city-row input{width:100%;min-width:0;border:0;background:transparent;padding:10px 12px;border-radius:10px;color:var(--ink);outline:none;font-size:14px}.city-row input:focus{box-shadow:inset 0 0 0 1.5px #9bbba0}.search-btn{background:var(--green);color:white;border:0;border-radius:11px;width:44px;flex:0 0 44px;cursor:pointer;font-size:19px;transition:background .18s,transform .18s}.search-btn:hover{background:#356d52;transform:translateY(-1px)}.print-btn{width:100%;margin-top:13px;border:0;background:var(--coral);color:#34231d;border-radius:14px;padding:15px 17px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 5px 0 #df765c;transition:transform .18s,box-shadow .18s}.print-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #df765c}.geo-btn{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:var(--green);font-weight:700;font-size:12px;margin:15px 0 0;cursor:pointer}.hint,.status{font-size:11px;line-height:1.6;color:var(--muted);margin-top:12px}.hint{max-width:330px}.status{min-height:18px}.paper{background:var(--paper);padding:34px 38px 26px;border:1px solid #ebede7;border-radius:25px;box-shadow:0 18px 50px #263a2c0d;position:relative;overflow:hidden}.paper:before{content:'✳';position:absolute;right:24px;top:72px;color:#f6dfc8;font-size:42px;transform:rotate(12deg)}.paper-content{position:relative}.paper-top{display:flex;justify-content:space-between;align-items:center;gap:14px;color:#768179;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:800;border-bottom:1px solid #e8ebe4;padding:0 0 12px}.masthead{text-align:center;padding:21px 0 12px}.masthead h2{margin:0;font:700 clamp(40px,5vw,58px)/.9 'Fraunces',serif;letter-spacing:-2.5px;color:var(--green-dark)}.masthead p{font:italic 12px var(--serif);color:#758078;margin:10px 0 0}.edition{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;border-top:1px solid #e8ebe4;border-bottom:1px solid #e8ebe4;padding:9px 4px;font-size:9px;font-weight:800;color:#78837b;text-transform:uppercase;letter-spacing:.55px}.edition b{color:#e99872;font-size:11px}.headline{font:700 clamp(25px,3vw,34px)/1.08 'Outfit',sans-serif;letter-spacing:-1px;text-align:center;margin:22px 0 7px}.dek{text-align:center;font:italic 13px/1.5 var(--serif);color:#738077;margin:0 auto 17px;max-width:470px}.weather-card{background:linear-gradient(115deg,#e4f1e6 0%,#eef3da 57%,#fff0d7 100%);border:1px solid #e2eadb;border-radius:19px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;position:relative;overflow:hidden}.weather-card:after{content:'';position:absolute;width:150px;height:150px;border:1px solid #fff9;border-radius:50%;right:-38px;top:-88px;box-shadow:0 0 0 15px #fff5,0 0 0 31px #fff3}.weather-card>div{position:relative;z-index:1}.weather-kicker{font-size:9px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:#578166}.weather-location{font:600 20px 'Outfit',sans-serif;margin-top:5px}.weather-desc{font-size:12px;color:#5e7164;margin-top:3px}.temperature{font:600 52px/.95 'Outfit',sans-serif;letter-spacing:-3px;white-space:nowrap;color:#244c39}.weather-icon{font-size:28px;margin-right:4px;vertical-align:8px}.weather-meta{border-top:1px solid #cbdccb;margin-top:14px;padding-top:9px;display:flex;flex-wrap:wrap;gap:15px;font-size:10px;color:#617367}.section-title{font:700 18px 'Outfit',sans-serif;letter-spacing:-.35px;margin:20px 0 9px}.bottom-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:18px}.story{font:12px/1.7 'DM Sans',sans-serif;color:#657268;margin:0}.story strong{font-weight:700}.fact{background:#f5f5ee;border:1px solid #eeefe8;border-radius:14px;padding:13px 14px;font:12px/1.65 var(--serif);color:#57635a}.fact .pill{display:inline-block;background:#e4edcc;color:#52704a;padding:4px 9px;border-radius:99px;font:800 8px 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}.forecast{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.day{background:#fafbf8;border:1px solid #ebeee8;border-radius:12px;text-align:center;padding:10px 3px}.day-name{font-size:8px;font-weight:800;text-transform:uppercase;color:#79847c;letter-spacing:.3px}.day-icon{font-size:19px;margin:5px}.day-temp{font:600 13px 'Outfit',sans-serif}.day-rain{font-size:8px;color:#8a948d;margin-top:2px}.paper-footer{border-top:1px solid #e8ebe4;padding-top:10px;margin-top:19px;text-align:center;font:italic 10px var(--serif);color:#849087}.loading{opacity:.6}.hidden{display:none}
-    @media(max-width:800px){.topbar{padding:17px 0}.layout{grid-template-columns:1fr;gap:28px;margin-top:15px}.intro{position:static;padding:5px 0}.intro h1{font-size:58px}.intro>p{margin-bottom:22px}.paper{padding:28px 26px}.paper:before{right:18px;top:60px}.masthead h2{font-size:48px}.headline{font-size:30px}}
-    @media(max-width:480px){.today-label{font-size:10px}.layout{width:90vw}.intro h1{font-size:52px}.paper{padding:23px 17px;border-radius:20px}.paper-top{font-size:8px}.masthead h2{font-size:43px}.edition{font-size:8px;gap:6px}.weather-card{padding:17px 15px}.temperature{font-size:42px}.weather-icon{font-size:23px;margin-right:1px}.weather-meta{gap:8px;font-size:9px}.bottom-grid{gap:12px}.section-title{font-size:16px}.day{padding:9px 2px}}
-    .puzzle-section{margin-top:21px;padding:15px 16px 16px;background:#f7f8f2;border:1px solid #e9ece3;border-radius:17px}.puzzle-heading{display:flex;justify-content:space-between;align-items:start;gap:12px}.puzzle-heading .section-title{margin:0 0 3px}.puzzle-tag{font-size:8px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:#64806c;background:#e7eedc;padding:6px 8px;border-radius:99px;white-space:nowrap}.puzzle-subtitle{font-size:10px;color:#79847b;margin:0 0 12px}.puzzle-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(108px,.85fr);gap:14px;align-items:center}.word-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px;max-width:300px}.letter-cell{aspect-ratio:1;border:1px solid #e6eae1;background:#fff;border-radius:5px;color:#34463a;font:700 clamp(10px,1.5vw,13px) 'Outfit',sans-serif;padding:0;cursor:pointer;transition:background .12s,border-color .12s,transform .12s}.letter-cell:hover{border-color:#8eac90;transform:scale(1.06)}.letter-cell.selected{background:#e1edb7;border-color:#9db971;color:#33492d}.letter-cell.found{background:#dceee2;border-color:#96bea1;color:#275b3c}.word-side-title{font-size:9px;font-weight:800;color:#77837a;text-transform:uppercase;letter-spacing:.7px;margin-bottom:7px}.word-list{list-style:none;padding:0;margin:0;display:grid;gap:5px}.word-list li{font:600 12px 'Outfit',sans-serif;color:#3d4a40;display:flex;align-items:center;gap:7px}.word-list li:before{content:'';width:6px;height:6px;background:#c9d99f;border-radius:50%;flex:0 0 6px}.word-list li.found-word{color:#839184;text-decoration:line-through}.word-list li.found-word:before{content:'✓';display:grid;place-items:center;width:13px;height:13px;background:#dceee2;color:#39734c;font:700 9px 'DM Sans',sans-serif;flex-basis:13px}.puzzle-actions{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:12px}.check-word{border:0;background:var(--green);color:white;padding:8px 11px;border-radius:9px;font-size:10px;font-weight:800;cursor:pointer}.check-word:hover{background:#356d52}.puzzle-status{font-size:9px;line-height:1.4;color:#748078;text-align:right}.puzzle-status.success{color:#36724a;font-weight:700}
-    .daily-games{display:block}.sudoku-section{margin-top:14px;padding:15px 16px 16px;background:#f7f8f2;border:1px solid #e9ece3;border-radius:17px}.sudoku-heading{display:flex;align-items:start;justify-content:space-between;gap:10px}.sudoku-heading .section-title{margin:0 0 3px}.sudoku-subtitle{font-size:10px;color:#79847b;margin:0 0 12px}.sudoku-layout{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:12px;align-items:center}.sudoku-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));width:min(100%,270px);border:2px solid #6d8b70;border-radius:8px;overflow:hidden;background:#fff}.sudoku-cell{aspect-ratio:1;border:0;border-right:1px solid #dfe6dc;border-bottom:1px solid #dfe6dc;background:#fff;color:#34463a;font:600 16px 'Outfit',sans-serif;padding:0;cursor:pointer}.sudoku-cell:nth-child(6n){border-right:0}.sudoku-cell:nth-last-child(-n+6){border-bottom:0}.sudoku-cell.box-right{border-right:2px solid #9aaf98}.sudoku-cell.box-bottom{border-bottom:2px solid #9aaf98}.sudoku-cell.given{background:#edf1e9;color:#44564a;font-weight:800;cursor:default}.sudoku-cell.selected{background:#e0edbd;color:#24442f}.sudoku-cell.error{background:#ffe3d9;color:#9b463a}.sudoku-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.sudoku-number,.sudoku-clear{border:1px solid #e1e8dc;background:white;border-radius:7px;min-height:28px;color:#35523e;font:700 12px 'Outfit',sans-serif;cursor:pointer}.sudoku-number:hover,.sudoku-clear:hover{background:#e7efd9}.sudoku-clear{grid-column:span 3;font-size:9px}.sudoku-check{grid-column:span 3;border:0;background:var(--green);color:white;border-radius:8px;min-height:30px;font:700 9px 'DM Sans',sans-serif;cursor:pointer}.sudoku-check:hover{background:#356d52}.sudoku-status{grid-column:span 3;font-size:8px;line-height:1.35;color:#748078;text-align:center;min-height:18px}.sudoku-status.success{color:#36724a;font-weight:700}
-    @media(max-width:480px){.puzzle-section,.sudoku-section{padding:13px 11px}.puzzle-layout{grid-template-columns:minmax(0,1fr) 90px;gap:9px}.word-grid{gap:2px}.letter-cell{border-radius:3px}.puzzle-heading .section-title,.sudoku-heading .section-title{font-size:15px}.word-list li{font-size:10px}.puzzle-actions{align-items:start}.puzzle-status{max-width:130px}.sudoku-layout{grid-template-columns:minmax(0,1fr) 92px;gap:8px}.sudoku-cell{font-size:14px}.sudoku-number{min-height:25px}}
-    @media print{@page{size:A4;margin:9mm}body{background:white}.topbar,.intro{display:none!important}.layout{display:block;width:auto;margin:0}.paper{border:0;box-shadow:none;padding:3mm 6mm;border-radius:0;max-width:none}.paper:before{display:none}.masthead{padding:10px 0 7px}.masthead h2{font-size:37pt}.headline{font-size:22pt;margin:13px 0 5px}.dek{margin-bottom:10px}.weather-card{break-inside:avoid;padding:13px 17px}.section-title{margin-top:12px}.paper-footer{margin-top:12px}.daily-games{display:grid;grid-template-columns:1.08fr .92fr;gap:8px;align-items:start;margin-top:10px}.puzzle-section,.sudoku-section{break-inside:avoid;margin:0;padding:8px;border-radius:10px}.puzzle-heading,.sudoku-heading{display:block}.puzzle-tag{display:none}.puzzle-subtitle,.sudoku-subtitle{font-size:8px;margin:0 0 5px}.puzzle-layout,.sudoku-layout{grid-template-columns:1fr;gap:5px}.word-grid{width:min(100%,180px);max-width:180px;gap:1px}.letter-cell{font-size:8pt;border-radius:1px}.word-side-title{font-size:7px;margin:4px 0}.word-list{display:flex;flex-wrap:wrap;gap:3px 7px}.word-list li{font-size:8px}.word-list li:before{width:4px;height:4px;flex-basis:4px}.puzzle-actions{margin-top:4px}.check-word,.sudoku-controls{display:none}.puzzle-status{font-size:0;text-align:left}.puzzle-status:after{content:'Busca las palabras en horizontal, vertical o diagonal.';font-size:8px}.sudoku-grid{width:min(100%,150px);border-radius:4px}.sudoku-cell{font-size:10pt}.sudoku-status{display:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-    :root{--ink:#20362f;--muted:#778178;--canvas:#f5f1e8;--paper:#fffefa;--green:#214b3b;--green-dark:#153b32;--lime:#e2f28c;--coral:#ff987a;--sky:#e5eff5;--line:#e8e6dc}
-    body{background:radial-gradient(ellipse at 8% 2%,#ebe9dc 0,transparent 34%),var(--canvas)}
-    .topbar{padding:24px 0}.brand{font-size:18px;letter-spacing:-.55px}.brand span{background:#dbe993;color:#24442f;border-radius:14px;transform:rotate(-5deg)}
-    .layout{margin-top:28px;gap:36px}.intro{isolation:isolate;overflow:hidden;background:radial-gradient(circle at 96% 4%,#f2c77d 0 40px,#f5d998 41px 47px,transparent 48px),linear-gradient(145deg,#19453a,#17382f 72%);color:#fff;border-radius:30px;padding:32px 30px;box-shadow:0 22px 55px #253f321e}.intro:after{content:'✳';position:absolute;z-index:-1;right:6px;top:83px;color:#e2f28c15;font:110px/1 'Fraunces',serif;transform:rotate(14deg);pointer-events:none}
-    .eyebrow{background:#ffffff17;color:#e6f0cc;padding:8px 11px;font-size:10px}.eyebrow:before{color:#ffad80}.intro h1{font-size:clamp(50px,5.1vw,68px);line-height:.96;letter-spacing:-4px;margin:24px 0 16px;color:#fff}.intro h1 em{color:var(--lime);letter-spacing:-4.5px}.intro>p{color:#d0ddd2;font-size:14px;line-height:1.7;margin-bottom:25px}.form-label{color:#f1f3e9}.city-row{border:1px solid #ffffff30;box-shadow:0 8px 24px #10292022}.search-btn{background:#e2f28c;color:#23422f}.search-btn:hover{background:#f1f8c1}.print-btn{background:#ff9c79;color:#39271f;box-shadow:0 5px 0 #cb725c}.print-btn:hover{box-shadow:0 7px 0 #cb725c}.geo-btn{color:#e2f0de}.hint,.status{color:#c1d2c5}.paper{background:var(--paper);border-color:#e8e3d7;border-radius:28px;box-shadow:0 24px 70px #263a2c13}.paper:before{color:#f1c38d;right:27px;top:77px}.paper-top{color:#79857c}.paper-top span:last-child{background:#f4eddc;padding:6px 9px;border-radius:99px;font-size:8px;letter-spacing:.7px}.masthead{padding-top:23px}.masthead h2{font-size:clamp(42px,4.7vw,59px);line-height:.86;letter-spacing:-3.6px;color:#204b3c}.masthead p{font-size:12px}.edition{color:#718077}.edition b{color:#e78c6e}.headline{color:#233a31}.weather-card{background:linear-gradient(120deg,#e0f0e6 0%,#eef2d7 56%,#ffe7d1 100%);border-color:#e3eadb}.section-title{color:#213d32}.puzzle-section,.sudoku-section{background:#f8f7f0;border-color:#e9e7dc}.puzzle-tag{background:#e9edce;color:#58734f}
-    @media(max-width:800px){.topbar{padding:19px 0}.layout{margin-top:13px}.intro{padding:27px 26px}.intro h1{font-size:58px}}
-    @media(max-width:480px){.intro{padding:25px 21px;border-radius:24px}.intro h1{font-size:52px}.paper{border-radius:22px}}
-    @media print{body{background:white}.intro{display:none!important}.paper{background:white;border-radius:0}.paper:before{display:none}.paper-top span:last-child{background:transparent;padding:0}.masthead h2{font-size:37pt}.daily-games{grid-template-columns:1.08fr .92fr}}
-  </style>
-  <style id="diary-design">
-    :root{--ink:#193e46;--muted:#657b7b;--canvas:#f4f0e5;--paper:#fffcf3;--green:#4e7b65;--green-dark:#193e46;--lime:#f4d66d;--coral:#f17f67;--sky:#c5dadd;--line:#ddd9ca;--serif:'Fraunces',Georgia,serif}
-    body{background-color:var(--canvas);background-image:radial-gradient(#c4bda955 .7px,transparent .8px);background-size:19px 19px}
-    button,input{font-family:'DM Sans',sans-serif}
-    :focus-visible{outline:3px solid #e1755e;outline-offset:3px}
-    .topbar{width:min(1160px,92vw);padding:21px 0 9px}
-    .brand{font:700 17px 'DM Sans',sans-serif;letter-spacing:-.45px;color:var(--ink)}
-    .brand span{width:35px;height:35px;background:var(--lime);color:var(--ink);border:1px solid var(--ink);border-radius:50% 50% 42% 50%;font-size:18px;transform:rotate(-8deg)}
-    .today-label{font-size:12px;color:var(--ink);font-weight:700;text-transform:capitalize}
-    .layout{width:min(1160px,92vw);grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:42px;margin:23px auto 70px}
-    .intro{position:sticky;top:20px;overflow:hidden;isolation:isolate;padding:29px 27px 25px;border:1px solid #193e4630;border-radius:44px 20px 20px 20px;background:#c5dadd;color:var(--ink);box-shadow:7px 7px 0 #e8c8a9}
-    .intro:after{content:none}
-    .intro h1{font:600 clamp(39px,4.4vw,55px)/1.02 'Fraunces',serif;letter-spacing:-2.1px;color:var(--ink);margin:0 0 17px}
-    .sky-illustration{height:124px;position:relative;overflow:hidden;border:1px solid #193e4628;border-radius:52% 18px 18px 18px;background:#7297a1;margin:0 0 18px}
-    .sky-illustration svg{display:block;width:100%;height:100%}
-    .sky-illustration span{position:absolute;right:10px;bottom:9px;color:#fff9e9;font:italic 10px 'Fraunces',serif;transform:rotate(-3deg)}
-    .intro>p{max-width:340px;color:#365960;font-size:13px;line-height:1.65;margin:0 0 20px}
-    .form-label{font-size:12px;font-weight:700;letter-spacing:0;color:var(--ink);margin-bottom:7px}
-    .city-row{padding:4px;border:1px solid #193e4633;border-radius:13px;background:#fffdf7;box-shadow:2px 3px 0 #193e4610}
-    .city-row input{padding:10px 11px;color:var(--ink)}
-    .city-row input:focus{box-shadow:inset 0 0 0 1.5px var(--green)}
-    .search-btn{width:40px;flex-basis:40px;border-radius:10px;background:var(--ink);color:#fff9e9}
-    .search-btn:hover{background:#315f61}
-    .geo-btn{color:#254f50;font-size:12px;margin-top:12px;padding:4px 0}
-    .print-btn{margin-top:12px;padding:14px 16px;border:1px solid #193e46;border-radius:13px;background:var(--lime);color:#193e46;box-shadow:3px 4px 0 #193e46;font-size:13px}
-    .print-btn:hover{transform:translate(2px,2px);box-shadow:1px 2px 0 #193e46}
-    .hint,.status{color:#476a6d;font-size:10px;line-height:1.5}
-    .hint{margin-top:13px}
-    .paper{background:var(--paper);border:1px solid #d9d0bc;border-radius:8px 32px 9px 32px;box-shadow:8px 8px 0 #e5d6bd,0 22px 50px #4a54421a;padding:31px 34px 23px}
-    .paper:before{content:'✳';top:57px;right:21px;color:#e5b95c;font-size:30px}
-    .paper-top{border-color:#cfc8b6;padding-bottom:10px;color:#637672;font-size:8px;letter-spacing:.3px;text-transform:none}
-    .paper-top span:last-child{background:#f4d66d;padding:5px 9px;border:1px solid var(--ink);border-radius:50% 44% 49% 45%;color:var(--ink);font-size:8px;letter-spacing:0;transform:rotate(-2deg)}
-    .masthead{padding:18px 0 11px}
-    .masthead h2{font:650 clamp(40px,4.7vw,55px)/.85 'Fraunces',serif;letter-spacing:-2.9px;color:var(--ink)}
-    .masthead p{font:italic 11px/1.5 'Fraunces',serif;color:#627574;margin-top:9px}
-    .edition{border-color:#cfc8b6;padding:7px 4px;color:#526b68;font-size:8px;letter-spacing:.1px;text-transform:none}
-    .edition b{color:var(--coral)}
-    .headline{font:650 clamp(23px,2.6vw,31px)/1.08 'Fraunces',serif;letter-spacing:-.8px;color:var(--ink);margin:17px 0 6px}
-    .dek{font:italic 12px/1.5 'Fraunces',serif;color:#5f7774;margin-bottom:14px}
-    .weather-card{background:#dce9df;border:1px solid #9bb4a1;border-radius:19px 7px 19px 7px;padding:16px 19px}
-    .weather-card:after{width:105px;height:105px;right:-24px;top:-63px;border-color:#fff9;box-shadow:0 0 0 12px #fff5,0 0 0 24px #fff3}
-    .weather-kicker{font-size:9px;letter-spacing:.3px;text-transform:none;color:#4e7562}
-    .weather-location{font:650 19px 'DM Sans',sans-serif;color:var(--ink)}
-    .weather-desc{font-size:11px;color:#536d68}
-    .temperature{font:600 48px/.95 'Fraunces',serif;letter-spacing:-2px;color:#244c39}
-    .weather-meta{border-color:#b7c9b8;color:#526e63;font-size:9px}
-    .section-title{font:650 17px 'Fraunces',serif;letter-spacing:-.25px;color:var(--ink);margin:15px 0 7px}
-    .bottom-grid{gap:15px}
-    .story{font-size:11px;line-height:1.65;color:#526966}
-    .fact{background:#f6efd9;border:1px solid #e7d8ae;border-radius:5px 13px 5px 13px;padding:10px 12px;font:11px/1.55 'DM Sans',sans-serif;color:#52645c}
-    .fact .pill{background:#f4d66d;color:#254c49;border-radius:5px 10px;padding:4px 7px;font:700 8px 'DM Sans',sans-serif;letter-spacing:0;text-transform:none}
-    .day{background:#f7f5ea;border:1px solid #dfd9c8;border-radius:7px 11px 7px 11px;padding:8px 3px}
-    .day-name{font-size:8px;text-transform:none;color:#667873;letter-spacing:0}
-    .day-temp{font:650 12px 'DM Sans',sans-serif;color:var(--ink)}
-    .day-rain{font-size:8px;color:#6f827b}
-    .puzzle-section,.sudoku-section{background:#f8f3e7;border:1px solid #dfd5bd;border-radius:6px 17px 6px 17px;padding:13px 14px}
-    .sudoku-section{background:#eef3eb}
-    .puzzle-heading .section-title,.sudoku-heading .section-title{font-size:16px}
-    .puzzle-tag{background:#f4d66d;color:#254c49;border:1px solid #d4bb61;border-radius:4px 10px 4px 10px;padding:5px 7px;font-size:8px;letter-spacing:0;text-transform:none}
-    .puzzle-subtitle,.sudoku-subtitle{color:#657974;font-size:9px}
-    .word-grid{gap:2px}
-    .letter-cell{background:#fffdf6;border-color:#e5decf;border-radius:2px;color:#24484a;font-family:'DM Sans',sans-serif}
-    .letter-cell.selected{background:#f4d66d;border-color:#c2a748;color:#183e44}
-    .letter-cell.found{background:#cadfbe;border-color:#83a879;color:#214b3b}
-    .word-side-title{color:#668078;font-size:8px;letter-spacing:0;text-transform:none}
-    .word-list li{font:600 11px 'DM Sans',sans-serif;color:#425e58}
-    .word-list li:before{background:#83a879}
-    .word-list li.found-word:before{background:#c8ddb9;color:#28523d}
-    .check-word,.sudoku-check{background:#193e46;color:#fff9e9}
-    .check-word:hover,.sudoku-check:hover{background:#315f61}
-    .puzzle-status,.sudoku-status{color:#627771}
-    .sudoku-grid{border-color:#557e69;border-radius:4px}
-    .sudoku-cell{font-family:'DM Sans',sans-serif;color:#193e46}
-    .sudoku-cell.box-right,.sudoku-cell.box-bottom{border-color:#83a879}
-    .sudoku-cell.given{background:#e5ecdd;color:#315840}
-    .sudoku-cell.selected,.sudoku-number:hover,.sudoku-clear:hover{background:#f4d66d;color:#193e46}
-    .sudoku-cell.error{background:#f8d7c9;color:#8d4135}
-    .sudoku-number,.sudoku-clear{border-color:#ccd8ca;border-radius:5px;color:#315840}
-    .paper-footer{border-color:#d4cbb8;color:#6c7c74;font:italic 9px 'Fraunces',serif}
-    @media(max-width:800px){.topbar{padding:17px 0}.layout{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:17px}.intro{position:relative;padding:25px 24px 22px}.intro h1{font-size:clamp(41px,9vw,54px)}.sky-illustration{height:115px}.paper{padding:27px 25px 21px}}
-    @media(max-width:480px){.topbar{align-items:center}.brand{font-size:15px}.today-label{font-size:10px}.layout{width:91vw;gap:25px}.intro{padding:23px 20px 20px;border-radius:35px 18px 18px 18px}.intro h1{font-size:42px;letter-spacing:-1.8px}.sky-illustration{height:105px}.paper{padding:22px 16px 18px;border-radius:6px 24px 6px 24px}.paper-top{font-size:8px}.paper-top span:last-child{font-size:7px}.masthead h2{font-size:42px}.edition{font-size:8px;gap:6px}.weather-card{padding:14px 13px}.temperature{font-size:40px}.weather-icon{font-size:23px}.weather-meta{gap:8px}.bottom-grid{gap:10px}.section-title{font-size:16px}.day{padding:8px 2px}.puzzle-section,.sudoku-section{padding:12px 10px}.puzzle-layout{grid-template-columns:minmax(0,1fr) 84px;gap:7px}.sudoku-layout{grid-template-columns:minmax(0,1fr) 88px;gap:7px}.word-list li{font-size:9px}.sudoku-cell{font-size:14px}}
-    @media print{body{background:white;background-image:none}.intro,.topbar{display:none!important}.layout{display:block;width:auto;margin:0}.paper{background:#fff;border:0;border-radius:0;box-shadow:none;padding:3mm 6mm}.paper:before{display:none}.paper-top span:last-child{background:transparent;border:0;padding:0;transform:none}.masthead h2{font-size:37pt}.weather-card{background:#e6eee5}.daily-games{grid-template-columns:1.08fr .92fr}.puzzle-section,.sudoku-section{background:#f8f5ea}.paper-footer{margin-top:10px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+    :root {
+      --ink: #193e46;
+      --muted: #657b7b;
+      --canvas: #f4f0e5;
+      --paper: #fffcf3;
+      --leaf: #83a879;
+      --leaf-deep: #4e7b65;
+      --butter: #f4d66d;
+      --coral: #f17f67;
+      --sky: #c5dadd;
+      --rule: #ddd9ca;
+      --display: "Fraunces", Georgia, serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      background-color: var(--canvas);
+      background-image: radial-gradient(#c4bda955 .7px, transparent .8px);
+      background-size: 19px 19px;
+    }
+    button, input { font: inherit; }
+    :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+    .topbar {
+      width: min(1160px, 92vw);
+      margin: 0 auto;
+      padding: 21px 0 9px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font: 700 17px var(--body);
+      letter-spacing: -.45px;
+    }
+    .brand span {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50% 50% 42% 50%;
+      background: var(--butter);
+      font-size: 18px;
+      transform: rotate(-8deg);
+    }
+    .brand span svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+    .today-label {
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .layout {
+      width: min(1160px, 92vw);
+      margin: 23px auto 70px;
+      display: grid;
+      grid-template-columns: minmax(300px, .78fr) minmax(0, 1.22fr);
+      align-items: start;
+      gap: 42px;
+    }
+
+    /* The cover is an illustrated sky, with the controls tucked into its caption. */
+    .intro {
+      position: sticky;
+      top: 20px;
+      overflow: hidden;
+      padding: 29px 27px 25px;
+      border: 1px solid #193e4630;
+      border-radius: 44px 20px 20px 20px;
+      background: var(--sky);
+      color: var(--ink);
+      box-shadow: 7px 7px 0 #e8c8a9;
+    }
+    .intro h1 {
+      margin: 0 0 17px;
+      color: var(--ink);
+      font: 600 clamp(39px, 4.4vw, 55px)/1.02 var(--display);
+      letter-spacing: -2.1px;
+    }
+    .sky-illustration {
+      position: relative;
+      height: 124px;
+      overflow: hidden;
+      margin: 0 0 18px;
+      border: 1px solid #193e4628;
+      border-radius: 52% 18px 18px 18px;
+      background: #7297a1;
+    }
+    .sky-illustration svg { display: block; width: 100%; height: 100%; }
+    .sky-illustration span {
+      position: absolute;
+      right: 10px;
+      bottom: 9px;
+      color: #fff9e9;
+      font: italic 10px var(--display);
+      transform: rotate(-3deg);
+    }
+    .intro > p {
+      max-width: 340px;
+      margin: 0 0 20px;
+      color: #365960;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .form-label {
+      display: block;
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .city-row {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid #193e4633;
+      border-radius: 13px;
+      background: #fffdf7;
+      box-shadow: 2px 3px 0 #193e4610;
+    }
+    .city-row input {
+      width: 100%;
+      min-width: 0;
+      padding: 10px 11px;
+      border: 0;
+      border-radius: 9px;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .city-row input:focus { box-shadow: inset 0 0 0 1.5px var(--leaf); }
+    .search-btn {
+      width: 40px;
+      flex: 0 0 40px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--ink);
+      color: #fff9e9;
+      font-size: 19px;
+      cursor: pointer;
+    }
+    .search-btn:hover { background: #315f61; }
+    .search-btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+    .geo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 4px 0;
+      border: 0;
+      background: none;
+      color: #254f50;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .geo-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .print-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 13px;
+      background: var(--butter);
+      color: var(--ink);
+      box-shadow: 3px 4px 0 var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .16s, box-shadow .16s;
+    }
+    .print-btn:hover { transform: translate(2px, 2px); box-shadow: 1px 2px 0 var(--ink); }
+    .hint, .status { color: #476a6d; font-size: 10px; line-height: 1.5; }
+    .hint { max-width: 330px; margin-top: 13px; }
+    .status { min-height: 16px; margin-top: 12px; }
+
+    /* A warm journal page, with typography and rules borrowed from print. */
+    .paper {
+      position: relative;
+      overflow: hidden;
+      padding: 31px 34px 23px;
+      border: 1px solid #d9d0bc;
+      border-radius: 8px 32px 9px 32px;
+      background: var(--paper);
+      box-shadow: 8px 8px 0 #e5d6bd, 0 22px 50px #4a54421a;
+    }
+    .paper::before {
+      position: absolute;
+      top: 57px;
+      right: 21px;
+      color: #e5b95c;
+      content: "✳";
+      font-size: 30px;
+    }
+    .paper-content { position: relative; }
+    .paper-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #cfc8b6;
+      color: #637672;
+      font-size: 8px;
+    }
+    .paper-top span:last-child {
+      padding: 5px 9px;
+      border: 1px solid var(--ink);
+      border-radius: 50% 44% 49% 45%;
+      background: var(--butter);
+      color: var(--ink);
+      font-size: 8px;
+      transform: rotate(-2deg);
+    }
+    .masthead { padding: 18px 0 11px; text-align: center; }
+    .masthead h2 {
+      margin: 0;
+      color: var(--ink);
+      font: 650 clamp(40px, 4.7vw, 55px)/.85 var(--display);
+      letter-spacing: -2.9px;
+    }
+    .masthead p {
+      margin: 9px 0 0;
+      color: #627574;
+      font: italic 11px/1.5 var(--display);
+    }
+    .edition {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 7px 4px;
+      border-top: 1px solid #cfc8b6;
+      border-bottom: 1px solid #cfc8b6;
+      color: #526b68;
+      font-size: 8px;
+    }
+    .edition b { color: var(--coral); }
+    .headline {
+      margin: 17px 0 6px;
+      color: var(--ink);
+      font: 650 clamp(23px, 2.6vw, 31px)/1.08 var(--display);
+      letter-spacing: -.8px;
+      text-align: center;
+    }
+    .dek {
+      max-width: 470px;
+      margin: 0 auto 14px;
+      color: #5f7774;
+      font: italic 12px/1.5 var(--display);
+      text-align: center;
+    }
+    .weather-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      padding: 16px 19px;
+      border: 1px solid #9bb4a1;
+      border-radius: 19px 7px 19px 7px;
+      background: #dce9df;
+    }
+    .weather-card::after {
+      position: absolute;
+      top: -63px;
+      right: -24px;
+      width: 105px;
+      height: 105px;
+      border: 1px solid #fff9;
+      border-radius: 50%;
+      box-shadow: 0 0 0 12px #fff5, 0 0 0 24px #fff3;
+      content: "";
+    }
+    .weather-card > div { position: relative; z-index: 1; }
+    .weather-kicker { color: #4e7562; font-size: 9px; }
+    .weather-location { margin-top: 5px; color: var(--ink); font: 650 19px var(--body); }
+    .weather-desc { margin-top: 3px; color: #536d68; font-size: 11px; }
+    .temperature { color: #244c39; font: 600 48px/.95 var(--display); letter-spacing: -2px; white-space: nowrap; }
+    .weather-icon { display: inline-block; width: 44px; height: 44px; margin-right: 4px; vertical-align: -8px; }
+    .weather-icon svg { display: block; width: 100%; height: 100%; }
+    .weather-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 14px;
+      padding-top: 9px;
+      border-top: 1px solid #b7c9b8;
+      color: #526e63;
+      font-size: 9px;
+    }
+    .section-title { margin: 15px 0 7px; color: var(--ink); font: 650 17px var(--display); letter-spacing: -.25px; }
+    .bottom-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 15px; }
+    .story { margin: 0; color: #526966; font-size: 11px; line-height: 1.65; }
+    .fact {
+      padding: 10px 12px;
+      border: 1px solid #e7d8ae;
+      border-radius: 5px 13px 5px 13px;
+      background: #f6efd9;
+      color: #52645c;
+      font: 11px/1.55 var(--body);
+    }
+    .fact .pill {
+      display: inline-block;
+      margin-bottom: 6px;
+      padding: 4px 7px;
+      border-radius: 5px 10px;
+      background: var(--butter);
+      color: #254c49;
+      font: 700 8px var(--body);
+    }
+    .forecast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+    .day { padding: 8px 3px; border: 1px solid #dfd9c8; border-radius: 7px 11px; background: #f7f5ea; text-align: center; }
+    .day-name { color: #667873; font-size: 8px; }
+    .day-icon { display: block; width: 25px; height: 25px; margin: 5px auto; }
+    .day-icon svg { display: block; width: 100%; height: 100%; }
+    .day-temp { color: var(--ink); font: 650 12px var(--body); }
+    .day-rain { margin-top: 2px; color: #6f827b; font-size: 8px; }
+    .paper-footer { margin-top: 19px; padding-top: 10px; border-top: 1px solid #d4cbb8; color: #6c7c74; font: italic 9px var(--display); text-align: center; }
+
+    /* Daily games keep the feeling of printed activities, not app widgets. */
+    .daily-games { display: block; }
+    .puzzle-section, .sudoku-section {
+      margin-top: 14px;
+      padding: 13px 14px;
+      border: 1px solid #dfd5bd;
+      border-radius: 6px 17px;
+      background: #f8f3e7;
+    }
+    .puzzle-heading, .sudoku-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .puzzle-heading .section-title, .sudoku-heading .section-title { margin: 0 0 3px; font-size: 16px; }
+    .puzzle-tag { padding: 5px 7px; border: 1px solid #d4bb61; border-radius: 4px 10px; background: #e9edce; color: #58734f; font-size: 8px; white-space: nowrap; }
+    .puzzle-subtitle, .sudoku-subtitle { margin: 0 0 12px; color: #657974; font-size: 9px; }
+    .puzzle-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(108px, .85fr); align-items: center; gap: 14px; }
+    .word-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); max-width: 300px; gap: 2px; }
+    .letter-cell {
+      aspect-ratio: 1;
+      padding: 0;
+      border: 1px solid #e5decf;
+      border-radius: 2px;
+      background: #fffdf6;
+      color: #24484a;
+      font: 700 clamp(10px, 1.5vw, 13px) var(--body);
+      cursor: pointer;
+      transition: background .12s, border-color .12s;
+    }
+    .letter-cell:hover { border-color: var(--leaf); }
+    .letter-cell.selected { border-color: #c2a748; background: var(--butter); color: var(--ink); }
+    .letter-cell.found { border-color: var(--leaf); background: #cadfbe; color: #214b3b; }
+    .word-side-title { margin-bottom: 7px; color: #668078; font-size: 8px; }
+    .word-list { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+    .word-list li { display: flex; align-items: center; gap: 7px; color: #425e58; font: 600 11px var(--body); }
+    .word-list li::before { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: var(--leaf); content: ""; }
+    .word-list li.found-word { color: #839184; text-decoration: line-through; }
+    .word-list li.found-word::before { display: grid; place-items: center; width: 13px; height: 13px; flex-basis: 13px; background: #c8ddb9; color: #28523d; content: "✓"; font: 700 9px var(--body); }
+    .puzzle-actions { display: flex; justify-content: space-between; align-items: center; gap: 9px; margin-top: 12px; }
+    .check-word { padding: 8px 11px; border: 0; border-radius: 9px; background: var(--ink); color: #fff9e9; font-size: 10px; font-weight: 800; cursor: pointer; }
+    .check-word:hover, .sudoku-check:hover { background: #315f61; }
+    .puzzle-status { color: #627771; font-size: 9px; line-height: 1.4; text-align: right; }
+    .puzzle-status.success, .sudoku-status.success { color: #36724a; font-weight: 700; }
+
+    .sudoku-section { background: #eef3eb; }
+    .sudoku-layout { display: grid; grid-template-columns: minmax(0, 1fr) 110px; align-items: center; gap: 12px; }
+    .sudoku-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(100%, 270px); overflow: hidden; border: 2px solid #557e69; border-radius: 4px; background: #fff; }
+    .sudoku-cell {
+      aspect-ratio: 1;
+      padding: 0;
+      border: 0;
+      border-right: 1px solid #dfe6dc;
+      border-bottom: 1px solid #dfe6dc;
+      background: #fff;
+      color: var(--ink);
+      font: 600 16px var(--body);
+      cursor: pointer;
+    }
+    .sudoku-cell:nth-child(6n) { border-right: 0; }
+    .sudoku-cell:nth-last-child(-n+6) { border-bottom: 0; }
+    .sudoku-cell.box-right, .sudoku-cell.box-bottom { border-color: var(--leaf); }
+    .sudoku-cell.given { background: #e5ecdd; color: #315840; font-weight: 800; cursor: default; }
+    .sudoku-cell.selected, .sudoku-number:hover, .sudoku-clear:hover { background: var(--butter); color: var(--ink); }
+    .sudoku-cell.error { background: #f8d7c9; color: #8d4135; }
+    .sudoku-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .sudoku-number, .sudoku-clear {
+      min-height: 28px;
+      border: 1px solid #ccd8ca;
+      border-radius: 5px;
+      background: #fff;
+      color: #315840;
+      font: 700 12px var(--body);
+      cursor: pointer;
+    }
+    .sudoku-clear { grid-column: span 3; font-size: 9px; }
+    .sudoku-check { grid-column: span 3; min-height: 30px; border: 0; border-radius: 8px; background: var(--ink); color: #fff9e9; font: 700 9px var(--body); cursor: pointer; }
+    .sudoku-status { grid-column: span 3; min-height: 18px; color: #627771; font-size: 8px; line-height: 1.35; text-align: center; }
+
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 17px; }
+      .intro { position: relative; padding: 25px 24px 22px; }
+      .intro h1 { font-size: clamp(41px, 9vw, 54px); }
+      .sky-illustration { height: 115px; }
+      .paper { padding: 27px 25px 21px; }
+    }
+    @media (max-width: 520px) {
+      .topbar { padding: 17px 0; }
+      .brand { font-size: 15px; }
+      .today-label { font-size: 10px; }
+      .layout { width: 91vw; gap: 25px; }
+      .intro { padding: 23px 20px 20px; border-radius: 35px 18px 18px 18px; }
+      .intro h1 { font-size: 42px; letter-spacing: -1.8px; }
+      .sky-illustration { height: 105px; }
+      .paper { padding: 22px 16px 18px; border-radius: 6px 24px 6px 24px; }
+      .paper-top { font-size: 8px; }
+      .paper-top span:last-child { font-size: 7px; }
+      .masthead h2 { font-size: 42px; }
+      .edition { gap: 6px; font-size: 8px; }
+      .weather-card { padding: 14px 13px; }
+      .temperature { font-size: 40px; }
+      .weather-icon { width: 37px; height: 37px; margin-right: 1px; }
+      .weather-meta { gap: 8px; }
+      .bottom-grid { gap: 10px; }
+      .section-title { font-size: 16px; }
+      .day { padding: 8px 2px; }
+      .puzzle-section, .sudoku-section { padding: 12px 10px; }
+      .puzzle-layout { grid-template-columns: minmax(0, 1fr) 84px; gap: 7px; }
+      .sudoku-layout { grid-template-columns: minmax(0, 1fr) 88px; gap: 7px; }
+      .word-list li { font-size: 9px; }
+      .sudoku-cell { font-size: 14px; }
+    }
+    @media print {
+      @page { size: A4; margin: 9mm; }
+      body { background: #fff; background-image: none; }
+      .topbar, .intro { display: none !important; }
+      .layout { display: block; width: auto; margin: 0; }
+      .paper { padding: 3mm 6mm; border: 0; border-radius: 0; background: #fff; box-shadow: none; }
+      .paper::before { display: none; }
+      .paper-top span:last-child { padding: 0; border: 0; background: transparent; transform: none; }
+      .masthead h2 { font-size: 37pt; }
+      .weather-card { background: #e6eee5; }
+      .daily-games { display: grid; grid-template-columns: 1.08fr .92fr; align-items: start; gap: 8px; margin-top: 10px; }
+      .puzzle-section, .sudoku-section { break-inside: avoid; margin: 0; padding: 8px; border-radius: 10px; }
+      .puzzle-heading, .sudoku-heading { display: block; }
+      .puzzle-tag { display: none; }
+      .puzzle-subtitle, .sudoku-subtitle { margin-bottom: 5px; font-size: 8px; }
+      .puzzle-layout, .sudoku-layout { grid-template-columns: 1fr; gap: 5px; }
+      .word-grid { width: min(100%, 180px); max-width: 180px; gap: 1px; }
+      .letter-cell { border-radius: 1px; font-size: 8pt; }
+      .word-side-title { margin: 4px 0; font-size: 7px; }
+      .word-list { display: flex; flex-wrap: wrap; gap: 3px 7px; }
+      .word-list li { font-size: 8px; }
+      .word-list li::before { width: 4px; height: 4px; flex-basis: 4px; }
+      .puzzle-actions { margin-top: 4px; }
+      .check-word, .sudoku-controls { display: none; }
+      .puzzle-status { font-size: 0; text-align: left; }
+      .puzzle-status::after { font-size: 8px; content: "Busca las palabras en horizontal, vertical o diagonal."; }
+      .sudoku-grid { width: min(100%, 150px); border-radius: 4px; }
+      .sudoku-cell { font-size: 10pt; }
+      .sudoku-status { display: none; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <header class="topbar"><div class="brand"><span>✳</span> El diario de Pao</div><div class="today-label" id="todayLabel"></div></header>
+  <header class="topbar"><div class="brand"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4"/></svg></span> El diario de Pao</div><div class="today-label" id="todayLabel"></div></header>
   <main class="layout">
     <section class="intro" aria-label="Crear tu periódico">
       <h1>¿Qué tiempo<br>nos espera hoy?</h1>
@@ -132,9 +508,9 @@
       </div>
       <p>Una mirada al tiempo, una curiosidad y dos juegos nuevos. Elige tu ciudad y prepara la edición de hoy.</p>
       <label class="form-label" for="cityInput">El tiempo en tu ciudad</label>
-      <div class="city-row"><input id="cityInput" type="text" value="Madrid" placeholder="Escribe una ciudad" aria-label="Ciudad"><button class="search-btn" id="searchBtn" aria-label="Buscar ciudad">↗</button></div>
-      <button class="geo-btn" id="geoBtn">◎ Usar mi ubicación</button>
-      <button class="print-btn" id="printBtn">✳ &nbsp; Crear mi periódico en PDF</button>
+      <div class="city-row"><input id="cityInput" type="text" value="Madrid" placeholder="Escribe una ciudad" aria-label="Ciudad"><button class="search-btn" id="searchBtn" aria-label="Buscar ciudad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button></div>
+      <button class="geo-btn" id="geoBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg> Usar mi ubicación</button>
+      <button class="print-btn" id="printBtn">Imprimir o guardar como PDF</button>
       <div class="hint">Se abrirá la ventana de impresión. Elige <b>«Guardar como PDF»</b> para descargarlo.</div>
       <div class="status" id="status" role="status" aria-live="polite">Buscando el tiempo de Madrid…</div>
     </section>
@@ -147,11 +523,11 @@
         <p class="dek" id="dek">Asómate a la ventana: cada día trae un tiempo diferente.</p>
         <section class="weather-card" aria-label="El tiempo de hoy">
           <div><div class="weather-kicker">El cielo de hoy</div><div class="weather-location" id="weatherLocation">Madrid, España</div><div class="weather-desc" id="weatherDesc">Cargando el pronóstico…</div><div class="weather-meta"><span id="highLow">Máx. —° · Mín. —°</span><span id="wind">Viento — km/h</span></div></div>
-          <div class="temperature"><span class="weather-icon" id="weatherIcon">🌤️</span><span id="temperature">—°</span></div>
+          <div class="temperature"><span class="weather-icon" id="weatherIcon"></span><span id="temperature">—°</span></div>
         </section>
         <div class="bottom-grid">
           <section><h3 class="section-title">El reportero del tiempo</h3><p class="story" id="story">¿Sabías que el tiempo cambia porque el aire y las nubes están siempre en movimiento? ¡Hoy tenemos una nueva aventura meteorológica!</p></section>
-          <section><h3 class="section-title">La semana en el cielo</h3><div class="forecast" id="forecast"><div class="day"><div class="day-name">Mañana</div><div class="day-icon">⛅</div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Pasado</div><div class="day-icon">🌤️</div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Después</div><div class="day-icon">☀️</div><div class="day-temp">—°</div><div class="day-rain">—</div></div></div></section>
+          <section><h3 class="section-title">La semana en el cielo</h3><div class="forecast" id="forecast"><div class="day"><div class="day-name">Mañana</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Pasado</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div><div class="day"><div class="day-name">Después</div><div class="day-icon"></div><div class="day-temp">—°</div><div class="day-rain">—</div></div></div></section>
         </div>
         <div class="bottom-grid">
           <section><h3 class="section-title">Un dato genial</h3><div class="fact"><span class="pill">¿Sabías que…?</span><br><span id="fact">Las gotas de lluvia no tienen forma de lágrima: ¡las pequeñas son casi redondas!</span></div></section>
@@ -174,7 +550,13 @@
   </main>
   <script>
     const $=id=>document.getElementById(id);
-    const wx={0:['Despejado','☀️','¡El sol brilla con ganas! Un día perfecto para explorar las sombras, buscar formas en las nubes y jugar al aire libre.'],1:['Mayormente despejado','🌤️','El sol asoma entre algunas nubes. ¡El cielo está jugando al escondite!'],2:['Parcialmente nublado','⛅','Nubes y claros comparten el cielo. ¿Puedes contar cuántas nubes pasan en cinco minutos?'],3:['Nublado','☁️','Las nubes han organizado una reunión en el cielo. ¡Un buen día para imaginar qué figuras esconden!'],45:['Niebla','🌫️','Una niebla misteriosa cubre el paisaje. Camina con un adulto y juega a descubrir lo que aparece cerca.'],48:['Niebla','🌫️','Una niebla misteriosa cubre el paisaje. Camina con un adulto y juega a descubrir lo que aparece cerca.'],51:['Llovizna','🌦️','Caen gotitas suaves: ¡las plantas se dan una ducha! Si sales, quizá necesites un paraguas.'],53:['Llovizna','🌦️','Caen gotitas suaves: ¡las plantas se dan una ducha! Si sales, quizá necesites un paraguas.'],55:['Llovizna','🌧️','La lluvia canta en los tejados. ¡Escucha su ritmo y busca los charquitos!'],61:['Lluvia suave','🌧️','La lluvia riega las calles y los jardines. ¡Un paraguas de colores será un gran compañero!'],63:['Lluvia','🌧️','Hoy llueve con ganas. Un buen momento para leer, dibujar o saltar charcos con botas.'],65:['Lluvia fuerte','⛈️','Llueve con fuerza: toca plan de interior y escuchar el tamborileo de las gotas.'],71:['Nieve suave','🌨️','¡Copos de nieve en camino! Abrígate bien y mira cómo cada copo tiene su propio dibujo.'],73:['Nieve','❄️','El cielo envía copos blancos. ¡Quizá puedas atrapar uno con el guante!'],75:['Nieve fuerte','❄️','¡Una nevada de cuento! Abrígate bien y disfruta del paisaje desde un lugar calentito.'],80:['Chubascos','🌦️','Podría caer un chaparrón viajero. ¡Ten el paraguas a mano por si acaso!'],81:['Chubascos','🌧️','Nubes con duchas rápidas cruzan el cielo. ¡El paraguas puede ser tu mejor amigo!'],82:['Chubascos fuertes','⛈️','Se esperan chaparrones intensos: mejor jugar bajo techo y dejar que la lluvia haga su música.'],95:['Tormenta','⛈️','Se acerca una tormenta. Quédate bajo techo con un adulto hasta que pase.'],96:['Tormenta','⛈️','Puede haber tormenta. Quédate en un lugar cubierto con un adulto y espera a que pase.'],99:['Tormenta','⛈️','Puede haber tormenta. Quédate en un lugar cubierto con un adulto y espera a que pase.']};
+    const wx={0:['Despejado','sun','¡El sol brilla con ganas! Un día perfecto para explorar las sombras, buscar formas en las nubes y jugar al aire libre.'],1:['Mayormente despejado','partly','El sol asoma entre algunas nubes. ¡El cielo está jugando al escondite!'],2:['Parcialmente nublado','partly','Nubes y claros comparten el cielo. ¿Puedes contar cuántas nubes pasan en cinco minutos?'],3:['Nublado','cloud','Las nubes han organizado una reunión en el cielo. ¡Un buen día para imaginar qué figuras esconden!'],45:['Niebla','fog','Una niebla misteriosa cubre el paisaje. Camina con un adulto y juega a descubrir lo que aparece cerca.'],48:['Niebla','fog','Una niebla misteriosa cubre el paisaje. Camina con un adulto y juega a descubrir lo que aparece cerca.'],51:['Llovizna','drizzle','Caen gotitas suaves: ¡las plantas se dan una ducha! Si sales, quizá necesites un paraguas.'],53:['Llovizna','drizzle','Caen gotitas suaves: ¡las plantas se dan una ducha! Si sales, quizá necesites un paraguas.'],55:['Llovizna','rain','La lluvia canta en los tejados. ¡Escucha su ritmo y busca los charquitos!'],61:['Lluvia suave','rain','La lluvia riega las calles y los jardines. ¡Un paraguas de colores será un gran compañero!'],63:['Lluvia','rain','Hoy llueve con ganas. Un buen momento para leer, dibujar o saltar charcos con botas.'],65:['Lluvia fuerte','storm','Llueve con fuerza: toca plan de interior y escuchar el tamborileo de las gotas.'],71:['Nieve suave','snow','¡Copos de nieve en camino! Abrígate bien y mira cómo cada copo tiene su propio dibujo.'],73:['Nieve','snow','El cielo envía copos blancos. ¡Quizá puedas atrapar uno con el guante!'],75:['Nieve fuerte','snow','¡Una nevada de cuento! Abrígate bien y disfruta del paisaje desde un lugar calentito.'],80:['Chubascos','shower','Podría caer un chaparrón viajero. ¡Ten el paraguas a mano por si acaso!'],81:['Chubascos','shower','Nubes con duchas rápidas cruzan el cielo. ¡El paraguas puede ser tu mejor amigo!'],82:['Chubascos fuertes','storm','Se esperan chaparrones intensos: mejor jugar bajo techo y dejar que la lluvia haga su música.'],95:['Tormenta','storm','Se acerca una tormenta. Quédate bajo techo con un adulto hasta que pase.'],96:['Tormenta','storm','Puede haber tormenta. Quédate en un lugar cubierto con un adulto y espera a que pase.'],99:['Tormenta','storm','Puede haber tormenta. Quédate en un lugar cubierto con un adulto y espera a que pase.']};
+    const cloudShape=`<path d="M13 38c0-6.1 4.9-11 11-11 1.8-7.4 8.4-12.5 16.1-12.5 8.6 0 15.6 6.8 16 15.3 5.8.7 10.2 5.6 10.2 11.5 0 6.4-5.2 11.7-11.7 11.7H25.2C18.5 54 13 48.6 13 42c0-1.4 0-2.7.4-4Z" transform="translate(-7 -4)" fill="#fff9e9"/>`;
+    const sunShape='<circle cx="24" cy="23" r="11" fill="#f4d66d"/><path d="M24 4v5m0 28v5M5 23h5m28 0h5M10.5 9.5 14 13m20 20 3.5 3.5m0-27L34 13m-20 20-3.5 3.5" stroke="#f4d66d" stroke-width="3" stroke-linecap="round"/>';
+    const drops='<path d="M22 48v4m13-4v4m13-4v4" stroke="#5d91a0" stroke-width="3" stroke-linecap="round"/>';
+    const snowflakes='<path d="M22 48v7m-3.5-3.5h7m-5.5-2 5 5m0-5-5 5m14-8v7m-3.5-3.5h7m-5.5-2 5 5m0-5-5 5m14-8v7m-3.5-3.5h7m-5.5-2 5 5m0-5-5 5" stroke="#5d91a0" stroke-width="1.7" stroke-linecap="round"/>';
+    const weatherArt={sun:sunShape,partly:sunShape+cloudShape,cloud:cloudShape,fog:cloudShape+'<path d="M12 49h42M16 55h36" stroke="#5d91a0" stroke-width="2.5" stroke-linecap="round"/>',drizzle:cloudShape+'<path d="M25 48v2m11-2v2m11-2v2" stroke="#5d91a0" stroke-width="3.5" stroke-linecap="round"/>',rain:cloudShape+drops,shower:cloudShape+'<path d="m24 47-2 5m15-5-2 5m15-5-2 5" stroke="#5d91a0" stroke-width="2.5" stroke-linecap="round"/>',snow:cloudShape+snowflakes,storm:cloudShape+'<path d="m38 42-9 11h7l-3 9 14-16h-8l4-4Z" fill="#f4d66d" stroke="#d18b4f" stroke-width="1.3" stroke-linejoin="round"/>'+drops};
+    function weatherSvg(kind){return `<svg viewBox="0 0 64 64" aria-hidden="true">${weatherArt[kind]||weatherArt.partly}</svg>`}
     const facts=['Las gotas de lluvia no tienen forma de lágrima: ¡las pequeñas son casi redondas!','Un rayo puede calentar el aire a su alrededor más que la superficie del Sol. ¡Impresionante!','Los copos de nieve tienen seis lados, pero no hay dos que sean exactamente iguales.','Las nubes pueden viajar por el cielo a la velocidad de una bicicleta rápida.','Un arcoíris es un círculo completo, pero desde el suelo normalmente vemos solo una parte.'];
     const date=new Date();const fmt=new Intl.DateTimeFormat('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('todayLabel').textContent=fmt.format(date);$('paperDate').textContent=fmt.format(date);
     const puzzleThemes=[
@@ -223,17 +605,18 @@
     }
     buildDailySudoku();
     function setStatus(s){$('status').textContent=s}
-    function weatherInfo(code){return wx[code]||['Tiempo cambiante','🌈','El cielo nos sorprende con un tiempo especial. ¡Cada día es una oportunidad para descubrir algo nuevo!']}
+    function weatherInfo(code){return wx[code]||['Tiempo cambiante','partly','El cielo nos sorprende con un tiempo especial. ¡Cada día es una oportunidad para descubrir algo nuevo!']}
     async function loadWeather(lat,lon,name,country=''){
       $('paperPlace').textContent=name;$('weatherLocation').textContent=country?`${name}, ${country}`:name; $('newspaper').classList.add('loading');setStatus('Buscando el pronóstico…');
       try{const u=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=4`;
-        const r=await fetch(u);if(!r.ok)throw Error('No se pudo cargar el pronóstico');const d=await r.json(),c=d.current,day=d.daily,info=weatherInfo(c.weather_code),temp=Math.round(c.temperature_2m),feels=Math.round(c.apparent_temperature);$('weatherDesc').textContent=info[0];$('weatherIcon').textContent=info[1];$('temperature').textContent=`${temp}°`;$('highLow').textContent=`Máx. ${Math.round(day.temperature_2m_max[0])}° · Mín. ${Math.round(day.temperature_2m_min[0])}°`;$('wind').textContent=`Viento ${Math.round(c.wind_speed_10m)} km/h`;$('story').textContent=`${info[2]} Ahora hacen ${temp}° y la sensación es de ${feels}°. ¡Un dato para contar en el recreo!`;
+        const r=await fetch(u);if(!r.ok)throw Error('No se pudo cargar el pronóstico');const d=await r.json(),c=d.current,day=d.daily,info=weatherInfo(c.weather_code),temp=Math.round(c.temperature_2m),feels=Math.round(c.apparent_temperature);$('weatherDesc').textContent=info[0];$('weatherIcon').innerHTML=weatherSvg(info[1]);$('temperature').textContent=`${temp}°`;$('highLow').textContent=`Máx. ${Math.round(day.temperature_2m_max[0])}° · Mín. ${Math.round(day.temperature_2m_min[0])}°`;$('wind').textContent=`Viento ${Math.round(c.wind_speed_10m)} km/h`;$('story').textContent=`${info[2]} Ahora hacen ${temp}° y la sensación es de ${feels}°. ¡Un dato para contar en el recreo!`;
         const temps=temp>=28?'¡Qué calorcito! Recuerda beber agua y buscar la sombra.':temp<=8?'¡Hace fresquito! Una chaqueta calentita será tu aliada.':'¡Un día estupendo para observar el cielo y descubrir qué tiempo hace!';$('dek').textContent=`${temps} El cielo de hoy en ${name}.`;$('headline').textContent=info[0]==='Despejado'?'¡El sol se asoma para jugar!':info[0]==='Lluvia'||info[0]==='Lluvia fuerte'?'¡Las nubes riegan el mundo hoy!':`¡${info[0]}: el cielo tiene una historia!`;$('fact').textContent=facts[date.getDate()%facts.length];
-        const dayNames=['Hoy','Mañana','Pasado','En 3 días'];$('forecast').innerHTML=dayNames.slice(1).map((n,i)=>{const j=i+1,inf=weatherInfo(day.weather_code[j]);return `<div class="day"><div class="day-name">${n}</div><div class="day-icon">${inf[1]}</div><div class="day-temp">${Math.round(day.temperature_2m_max[j])}° / ${Math.round(day.temperature_2m_min[j])}°</div><div class="day-rain">${day.precipitation_probability_max[j]??0}% lluvia</div></div>`}).join('');setStatus(`Pronóstico actualizado para ${name}.`)
+        const dayNames=['Hoy','Mañana','Pasado','En 3 días'];$('forecast').innerHTML=dayNames.slice(1).map((n,i)=>{const j=i+1,inf=weatherInfo(day.weather_code[j]);return `<div class="day"><div class="day-name">${n}</div><div class="day-icon">${weatherSvg(inf[1])}</div><div class="day-temp">${Math.round(day.temperature_2m_max[j])}° / ${Math.round(day.temperature_2m_min[j])}°</div><div class="day-rain">${day.precipitation_probability_max[j]??0}% lluvia</div></div>`}).join('');setStatus(`Pronóstico actualizado para ${name}.`)
       }catch(e){setStatus('No pudimos cargar el tiempo. Comprueba tu conexión e inténtalo de nuevo.');$('weatherDesc').textContent='Pronóstico temporalmente no disponible';$('story').textContent='El reportero del tiempo volverá en un ratito. ¡Mientras tanto, mira por la ventana y cuéntanos qué ves!'}finally{$('newspaper').classList.remove('loading')}
     }
     async function searchCity(){const q=$('cityInput').value.trim();if(!q)return setStatus('Escribe el nombre de una ciudad.');setStatus(`Buscando ${q}…`);try{const r=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=1&language=es&format=json`);const d=await r.json();if(!d.results?.length)throw Error('Ciudad no encontrada');const c=d.results[0];await loadWeather(c.latitude,c.longitude,c.name,c.country)}catch(e){setStatus('No encontramos esa ciudad. Prueba con otra.') }}
     $('searchBtn').addEventListener('click',searchCity);$('cityInput').addEventListener('keydown',e=>{if(e.key==='Enter')searchCity()});$('printBtn').addEventListener('click',()=>window.print());$('geoBtn').addEventListener('click',()=>{if(!navigator.geolocation)return setStatus('Tu navegador no permite compartir la ubicación.');setStatus('Esperando permiso para usar tu ubicación…');navigator.geolocation.getCurrentPosition(p=>{const name='Mi ubicación';$('cityInput').value=name;loadWeather(p.coords.latitude,p.coords.longitude,name)},()=>setStatus('No pudimos acceder a tu ubicación. Puedes escribir tu ciudad.'))});
+    $('weatherIcon').innerHTML=weatherSvg('partly');$('forecast').querySelectorAll('.day-icon').forEach(icon=>icon.innerHTML=weatherSvg('partly'));
     searchCity();
   </script>
 </body>
